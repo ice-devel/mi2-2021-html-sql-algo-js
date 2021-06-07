@@ -1,0 +1,41 @@
+/*
+    On cible un ou des éléments avec ce qu'on appelle des sélecteurs,
+    et on applique des valeurs à des propriétés
+ */
+
+/* sélecteur par tag */
+h1 {
+    color: #0de70d;
+    /* margin: 10px 5px 5px 5px; */
+    margin: 10px; /* marge extérieure */
+    padding: 15px; /* marge intérieur */
+    background-color: yellow; /* couleur de fond */
+    border: 1px solid #000;
+    width: 50%;
+    height: auto;
+}
+
+p {
+    font-style: italic;
+}
+
+span {
+    font-weight: bold;
+}
+
+/* sélecteur par identifiant : un identifiant = un élément et un seu */
+#span-css {
+    color: #ff00ff;
+}
+
+/*
+sélecteur par classe :
+une classe = un ou plusieurs éléments / un élément = une ou plusieurs classes
+*/
+.red {
+    color: red;
+}
+
+.underline {
+    text-decoration: underline;
+}
