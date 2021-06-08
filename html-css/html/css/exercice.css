@@ -1,0 +1,32 @@
+h1 {
+    border: 1px solid #000;
+    background-color: #0de70d;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.argument {
+    color: #3131f5;
+    border: 1px solid #3131f5;
+    font-size: 2rem;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+#container-arguments {
+    text-align: center;
+}
+
+ul {
+    font-size: 2rem;
+    display: inline-block;
+}
+
+#container-steps {
+    text-align: center;
+}
+
+li {
+    text-align: left;
+}
