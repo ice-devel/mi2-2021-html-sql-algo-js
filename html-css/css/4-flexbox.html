@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container1, .container2 {
+            display: flex;
+        }
+
+        .container1 {
+            flex-direction: row-reverse;
+        }
+
+        .container1 div {
+            flex: 1 1 auto;
+            border: 1px solid;
+            margin: 0 10px 0 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container2 {
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .container2 div {
+            flex-basis: 200px;
+            flex-shrink: 0;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS : Positionnement Flexbox</h1>
+
+    <ul>
+        <li>display:flex pour le container</li>
+        <li>flex: flex-grow flex-shrink flex-basis</li>
+        <li>flex-grow : facteur d'agrandissement</li>
+        <li>flex-shrink : facteur de rétrécissement</li>
+        <li>flex-basis : largeur des éléments</li>
+        <li>flex-wrap : sur le container / retour à la ligne ou non des éléments qui dépassent</li>
+        <li>justify-content: aligner les éléments avec ou sans espaces, etc.</li>
+        <li>justify-direction: en ligne ou en colonne / dans l'ordre ou dans l'ordre inverse</li>
+    </ul>
+
+    <div class="container1">
+        <div>
+            DIV 1
+        </div>
+
+        <div>
+            DIV 2
+        </div>
+
+        <div>
+            DIV 3
+        </div>
+    </div>
+
+    <div class="container2">
+        <div>
+            DIV 1
+        </div>
+
+        <div>
+            DIV 2
+        </div>
+
+        <div>
+            DIV 3
+        </div>
+    </div>
+</body>
+</html>
