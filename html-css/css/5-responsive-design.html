@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .container div {
+            flex-basis: 200px;
+            border: 1px solid;
+        }
+
+        h3 {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column-reverse;
+            }
+
+            .container div {
+                flex-basis: 50px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            h3 {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Responsive design</h1>
+    <h2>Media queries</h2>
+    <h3>Nous sommes entre 768 et 1024</h3>
+
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>
