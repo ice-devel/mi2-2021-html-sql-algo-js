@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS : les positionnements</h1>
+
+    <div style="position:static;" >
+        Div 1 : static
+    </div>
+
+    <div style="position:static;background-color:deepskyblue" >
+        Div 2 : static
+    </div>
+
+    <div style="position:relative;top:-7px;left:5px;background-color:yellow;z-index:-10;" >
+        Div 3 : relative - reste dans le flux mais
+        peut-être décalé par rapport à lui-même, et la profondeur est gérée avec le z-index
+    </div>
+
+    <div style="position:static;" >
+        Div 4 : static
+    </div>
+
+    <div style="position:absolute;bottom: 10px;background-color:yellow" >
+        Div 5 : absolute - sorti du flux - utilisation des coordonnées pour placer
+        l'élément par rapport à son référentiel
+    </div>
+
+    <div style="position:static;" >
+        Div 6 : static
+    </div>
+
+    <div style="position:relative;width:50%" >
+        Div 7 : relative (référentiel du div 8)
+        <div style="position:absolute;top:0;right:0;background-color:yellow">
+            Div 8 : absolute
+        </div>
+    </div>
+
+    <div style="position:static" >
+       Div 9 : Les coordonnées (top, right, bottom, left) d'un élément en position relative,
+        absolute ont pour référence le premier élément parent qui a une position relative/absolute.
+        S'il n'y en a pas, c'est le body qui sert de référence.
+    </div>
+
+    <div style="position:fixed;top:0;left:40%;background-color:darkseagreen" >
+       Div 10 : Fixed : n'est pas impacté par la position du scroll
+        <a href="">Lien 1</a>
+        <a href="">Lien 2</a>
+    </div>
+</body>
+</html>
