@@ -1,0 +1,35 @@
+ul {
+    color: green;
+}
+
+#premier-li {
+    font-size: 2rem;
+    color: purple;
+}
+
+.red {
+    color: red;
+}
+
+ul {
+    color: orange;
+}
+
+#premier-li {
+    color: yellow;
+}
+
+/*
+    Combinaisons de sélecteurs
+ */
+div ul {
+   font-style: italic;
+}
+
+p span {
+    text-decoration: underline;
+}
+
+#container-priority ul.list span {
+    margin-left: 20px;
+}

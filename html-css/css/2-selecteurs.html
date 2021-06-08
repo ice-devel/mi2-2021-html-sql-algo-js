@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style/selecteur.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>CSS : les sélecteurs</h1>
+
+    <ul>
+        <li id="premier-li" class="red">Par tag</li>
+        <li>Par identifiant : #</li>
+        <li style="color:pink">Par classe : .</li>
+    </ul>
+
+    <p>Les propriétés s'appliquent en fonction des priorités des sélecteurs.
+    Par ordre de priorité :</p>
+
+    <div id="container-priority">
+        <ul class="list">
+            <li>!important</li>
+            <li>Style inline</li>
+            <li>Sélecteur id</li>
+            <li>Sélecteur class</li>
+            <li><span>Sélecteur tag</span></li>
+        </ul>
+    </div>
+
+    <p>Les <span>spans</span> dans ce paragraphe sont soulignés</p>
+
+</body>
+</html>
