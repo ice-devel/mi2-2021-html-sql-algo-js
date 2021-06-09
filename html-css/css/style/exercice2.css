@@ -1,0 +1,90 @@
+.row  {
+    display: flex;
+}
+
+.col {
+    border: 1px solid;
+}
+ .container-header {
+     justify-content: space-between;
+ }
+.col-logo {
+    flex: 1 1 33%;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.col-logo img {
+    max-width:150px;
+}
+
+.col-menu {
+    flex: 1 1 67%;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 30px;
+}
+
+.col-menu a {
+    flex: 1 1 150px;
+}
+
+.container-header-actu {
+    justify-content: center;
+}
+
+.container-header-actu h1 {
+    flex-basis: 70%;
+    border: 1px solid;
+    text-align: center;
+}
+
+.container-actus {
+    justify-content: space-around;
+}
+.container-actus .col {
+    flex-basis: 20%;
+    padding: 15px;
+}
+.container-actus .col h2 {
+   text-align:center;
+}
+
+.container-edito {
+    margin-top: 30px;
+    justify-content: space-around;
+}
+
+.col-edito {
+    flex: 1 1 67%;
+    margin-right: 30px;
+}
+
+.col-newsletter {
+    flex: 1 1 33%;
+}
+
+@media (max-width: 767px) {
+    .col-menu {
+        display: none;
+    }
+
+    .container-actus {
+       flex-direction: column;
+    }
+
+    .container-actus .col {
+       margin-bottom:30px;
+    }
+
+    .container-edito {
+        flex-direction: column;
+    }
+
+
+    .col-edito {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
