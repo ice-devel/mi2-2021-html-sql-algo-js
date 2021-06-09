@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les formulaires</title>
+</head>
+<body>
+    <h1>Les formulaires HTML</h1>
+
+    <form action="register.php" method="get">
+        <h2>Les différents types de champs</h2>
+
+        <p>
+            <input type="radio" id="input-civ-mme" name="input-civ" value="mme"/> <label for="input-civ-mme">Mme</label>
+            <input type="radio" id="input-civ-m" name="input-civ" value="m"/> <label for="input-civ-m">M.</label>
+        </p>
+
+        <p>
+            <label for="input-name">Votre nom :</label>
+            <input id="input-name" type="text" name="name"
+                   value="Nom par défaut" minlength="2" maxlength="50" required/>
+        </p>
+
+        <p>
+            <label>Votre mot de passe :</label>
+            <input type="password"  name="pass" placeholder="MDP : min 5 caractères"/>
+        </p>
+
+        <p>
+            <label for="select-departement">Votre département :</label>
+            <select id="select-departement" required>
+                <option></option>
+                <option value="1">Nord</option>
+                <option value="2">IDF</option>
+                <option value="3">Pas de Calais</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="select-langage">Vos languages :</label>
+            <select id="select-langage" name="languages[]" multiple>
+                <option></option>
+                <option>PHP</option>
+                <option>JS</option>
+                <option>HTML/CSS</option>
+            </select>
+        </p>
+
+        <p>
+            <label>Boissons à la pause :</label>
+            <input type="checkbox" name="boissons[]" value="tea"> Thé
+            <input type="checkbox" name="boissons[]" value="coffee"> Café
+            <input type="checkbox" name="boissons[]" value="juice"> Jus de fruit
+        </p>
+
+        <p>
+            <label for="input-reglement">Veuillez accepter le réglement :</label>
+            <input type="checkbox" id="input-reglement" required>
+        </p>
+
+        <p>
+            <label for="input-reglement">Décrivez-vous en quelques mots :</label>
+            <textarea>Valeur par défaut</textarea>
+        </p>
+
+        <p>
+            <label for="input-cv">Votre CV</label>
+            <input type="file" id="input-cv" accept=".jpg,.pdf"/>
+        </p>
+
+        <p>
+            <label for="input-email">Votre email</label>
+            <input type="email" id="input-email"/>
+        </p>
+        <p>
+            <label for="input-tel">Votre tel</label>
+            <input type="tel" id="input-tel" pattern="0(6|7)\d{8}"/>
+        </p>
+        <p>
+            <label for="input-date">Votre date de naissance</label>
+            <input type="date" id="input-date"/>
+        </p>
+        <p>
+            <label>Votre âge</label>
+            <input type="number" min="18" max="77" step=".1"/>
+        </p>
+        <p>
+            <input type="submit" />
+        </p>
+    </form>
+</body>
+</html>
