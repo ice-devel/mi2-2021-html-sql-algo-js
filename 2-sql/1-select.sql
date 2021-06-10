@@ -83,3 +83,20 @@ WHERE points NOT IN (10, 20, 30, 40);
 SELECT * FROM player WHERE email NOT LIKE '%@sfr.fr'
 
 SELECT * FROM player WHERE points NOT BETWEEN 50 AND 100;
+
+-- Clause ORDER BY : trier les résultats
+-- On peut trier les résultats suivant un ou plusieurs champs (clause en fin de requête)
+
+-- trier par nom par ordre alphabétique : ASC
+SELECT * FROM player ORDER BY name ASC;
+SELECT * FROM player ORDER BY points ASC; -- croissant
+SELECT * FROM player ORDER BY birthdate ASC; -- chronologique
+SELECT * FROM player ORDER BY name DESC; -- alphabétique inversé
+SELECT * FROM player ORDER BY points DESC; -- décroissant
+SELECT * FROM player ORDER BY birthdate DESC; -- anti chronologique
+
+-- On peut cumuler les tris : si jamais les valeurs sont identitiques pour le premier tri,
+-- quel est l'ordre de tri suivant. Ex:
+-- ici on trie du plus vieux au plus jeune, si jamais certains sont nés le même jour,
+-- alors ils seront triés de celui qui a le moins de points vers celui qui en a le plus
+SELECT * FROM `player` ORDER BY birthdate ASC, points ASC
