@@ -23,12 +23,13 @@
         - catégorie obligatoire
     </p>
 
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="Titre" required minlength="5"/><br>
+    <form action="" method="get" enctype="multipart/form-data">
+        <label for="input-title">Titre :</label>
+        <input id="input-title" type="text" name="title" placeholder="Titre" required minlength="5"/><br>
         <textarea name="description" placeholder="Contenu de votre article" required minlength="20"></textarea><br>
         Image : <input type="file" name="image" accept=".jpg"/><br>
-        <input type="radio" name="online" required/> Hors-ligne
-        <input type="radio" name="online" required/> En ligne<br>
+        <input type="radio" name="online" required value="0"/> Hors-ligne
+        <input type="radio" name="online" required value="1"/> En ligne<br>
         <input type="checkbox" name="online"/> En ligne<br>
         <select name="category" required>
             <option></option>
