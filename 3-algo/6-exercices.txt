@@ -23,8 +23,10 @@ Debut algo
     moyenne = somme / 5
 
     // intermédiaire avec version boucle
+    somme = 0 // initialisation à trouver
+
     note = Lire "Note 1"
-    somme = note
+    somme = somme + note
 
     note = Lire "Note 2"
     somme = somme + note
@@ -39,5 +41,4 @@ Debut algo
     somme = somme + note
 
     moyenne = somme / 5
-
 Fin algo
