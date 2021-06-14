@@ -4,17 +4,90 @@ Exo 1 :
 Demander à l'utilisateur deux nombres, afficher
 le résultat de la soustraction
 
+Variables
+    nombre1: entier
+    nombre2: entier
+    difference: entier
+Debut algo
+    afficher "Indiquer deux nombres à soustraire"
+    lire nombre1
+    lire nombre2
+
+    // variable intermediaire
+    difference = nombre1 - nombre2
+    afficher difference
+
+    // ou afficher le calcul directement
+    afficher nombre1 - nombre2
+Fin algo
+
 Exo 2 :
 Demander à l'utilisateur deux nombres compris entre
 5 et 50 et afficher le résultat de la multiplication.
 Si les nombres donnés par l'utilisateur ne sont pas compris
 entre 5 et 50, afficher un message d'erreur à l'utilisateur.
 
+Variables
+    chiffre1: entier
+    chiffre2: entier
+    produit: entier
+Algo
+    chiffre1 = Lire "Entrez votre chiffre"
+    chiffre2 = Lire "Entrez votre chiffre"
+
+    SI chiffre1 >= 5 ET chiffre1 <= 50
+       ET chiffre2 >= ET chiffre2 <= 50
+
+        produit = chiffre1 * chiffre2
+        afficher produit
+    SINON
+        Afficher "Veuillez saisir des nbs valides"
+    FIN SI
+Fin algo
+
 Exo 3 :
 Demander à l'utilisateur deux nombres et afficher le résultat
 de la division. Vérifiez d'abord si la divison est possible.
+
+Variables:
+    numerateur: entier
+    denominateur: entier
+    quotient: décimal
+Debut algo
+    numerateur = Lire "Le premier nombre"
+    denominateur = Lire "Le deuxième nombre"
+
+    SI denominateur == 0
+        Afficher "Erreur opération impossible"
+    SINON
+        quotient = numerateur / denominateur
+        afficher quotient
+    FIN SI
+Fin algo
 
 Exo 4 :
 Demander à l'utilisateur son âge, et afficher s'il est majeur ou mineur.
 Si il est mineur, il faut afficher en plus le nombre d'années
 qu'il lui reste avant d'être majeur.
+
+Variables
+    age: entier
+    reste: entier
+Debut algo
+    age = Lire "Quel est votre âge ?"
+
+    SI age >= 18
+        afficher "majeur"
+    SINON
+        // en une instruction
+        afficher "Tu es un mineur et tu le resteras " CONCAT (18 - age)
+                CONCAT  " années avant de devenir majeur"
+
+        // en découpant
+        reste = 18 - age
+        message = "Tu es un mineur et tu le resteras " CONCAT reste
+                  CONCAT  " années avant de devenir majeur"
+        afficher message
+    FIN SI
+FIN ALGO
+

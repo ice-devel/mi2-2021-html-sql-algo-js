@@ -1,0 +1,80 @@
+LES STRUCTURES ITERATIVES
+
+Exercice :
+
+Ecrire l'algorithme qui demande un chiffre à l'utilisateur
+entre 1 ET 9 (sinon message erreur)
+S'il a bien saisi un chiffre correct, afficher la table de multiplication de
+ce chiffre, sous le format suivant
+
+1 * 2 = 2
+2 * 2 = 4
+9 * 2 = 18
+
+1 * 3 = 3
+2 * 3 = 6
+9 * 3 = 27
+
+Variables
+    chiffre:entier
+Debut algo
+    chiffre = Lire "Chiffre ?"
+
+    SI chiffre < 1 OU chiffre > 9
+        afficher "Chiffre incorrect"
+    SINON
+        afficher "1 * " CONCAT chiffre CONCAT " = " CONCAT (1 * chiffre)
+        afficher "2 * " CONCAT chiffre CONCAT " = " CONCAT (2 * chiffre)
+        afficher "3 * " CONCAT chiffre CONCAT " = " CONCAT (3 * chiffre)
+        afficher "9 * " CONCAT chiffre CONCAT " = " CONCAT (9 * chiffre)
+    FIN SI
+Fin algo
+
+Les structures itératives (boucles / loop) vont permettre d'éviter
+de répéter des choses qui sont similaires.
+
+On va écrire un ou plusieurs instructions et les répéter un certain nombre.
+
+POUR (for) / TANT QUE (while) / REPETER JUSQU'A (do while)
+
+- Boucle POUR
+Trois paramètres : initialisation indice, condition d'arret, le pas
+
+Variables
+    indice: entier
+Debut algo
+    afficher "Je dois pas tricher"
+    afficher "Je dois pas tricher"
+    afficher "Je dois pas tricher"
+    // etc.
+
+    // cette boucle affiche 150 fois le message
+    POUR indice DE 1 A 150 PAR PAS DE 1
+        afficher "Je dois pas tricher."
+    FIN POUR
+
+    // cette boucle affiche 15 fois le message
+    POUR indice DE 1 A 150 PAR PAS DE 10
+        afficher "Je dois pas tricher."
+    FIN POUR
+
+    // cette boucle affiche 16 fois le message
+    POUR indice DE 0 A 150 PAR PAS DE 10
+        afficher "Je dois pas tricher."
+    FIN POUR
+Fin algo
+
+Variables
+    chiffre:entier
+    i: entier
+Debut algo
+    chiffre = Lire "Chiffre ?"
+
+    SI chiffre < 1 OU chiffre > 9
+        afficher "Chiffre incorrect"
+    SINON
+        POUR i DE 1 A 9 PAR PAS DE 1
+            afficher i CONCAT " * " CONCAT chiffre CONCAT " = " CONCAT (i * chiffre)
+        FIN POUR
+    FIN SI
+Fin algo
