@@ -1,9 +1,41 @@
 Exercices LOOP
 
 Exo 1
-Demander à l'utilsiateur de saisir 5 notes
+Demander à l'utilisateur de saisir 5 notes
 Afficher la moyenne de ces notes
 
 2 versions :
 - une sans boucle
 - une avec boucle
+
+Variables
+    note1, note2, note3, note4, note5:entier
+Debut algo
+    note1 = Lire "Note 1"
+    note2 = Lire "Note 2"
+    note3 = Lire "Note 3"
+    note4 = Lire "Note 4"
+    note5 = Lire "Note 5"
+
+    moyenne = (note1+note2+note3+note4+note5) / 5
+
+    somme =  note1+note2+note3+note4+note5
+    moyenne = somme / 5
+
+    // intermédiaire avec version boucle
+    note = Lire "Note 1"
+    somme = note
+
+    note = Lire "Note 2"
+    somme = somme + note
+
+    note = Lire "Note 3"
+    somme = somme + note
+
+    note = Lire "Note 4"
+    somme = somme + note
+
+    note = Lire "Note 5"
+    somme = somme + note
+
+Fin algo
