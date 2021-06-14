@@ -38,4 +38,6 @@ Debut algo
     note = Lire "Note 5"
     somme = somme + note
 
+    moyenne = somme / 5
+
 Fin algo
