@@ -36,6 +36,9 @@ de répéter des choses qui sont similaires.
 On va écrire un ou plusieurs instructions et les répéter un certain nombre.
 
 POUR (for) / TANT QUE (while) / REPETER JUSQU'A (do while)
+POUR : nombre d'itérations connu
+TANT QUE : nombre d'itération inconnu, avec possibilité de 0 itération
+REPETER : nombre d'itération inconnu, avec au moins une itération
 
 - Boucle POUR
 Trois paramètres : initialisation indice, condition d'arret, le pas
@@ -78,3 +81,40 @@ Debut algo
         FIN POUR
     FIN SI
 Fin algo
+
+- Boucle TANT QUE
+
+Variables
+    indice: entier
+    chiffre: entier
+Debut algo
+    indice = 1 // initialisation manuelle
+    TANT QUE indice <= 150
+        afficher "Je dois pas tricher."
+        indice = indice + 1 // incrémentation manuelle
+    FIN TANT QUE
+
+    // autre exemple où la boucle TANT QUE serait préconisée
+    chiffre = Lire "Veuillez saisir un chiffre entre 1 et 9"
+    TANT QUE chiffre < 1 OU chiffre > 9
+         chiffre = Lire "Incorrect. Veuillez saisir un chiffre entre 1 et 9"
+    FIN TANT QUE
+Fin algo
+
+- Boucle REPETER JUSQU'A
+
+Debut algo
+    indice = 1 // initialisation manuelle
+    REPETER
+        afficher "Je dois pas tricher."
+        indice = indice + 1 // incrémentation manuelle
+    TANT QUE indice <= 150
+
+    REPETER
+        chiffre = Lire "Veuillez saisir un chiffre entre 1 et 9"
+    TANT QUE chiffre < 1 OU chiffre > 9
+
+    // arrivé à cette ligne ici, chiffre est forcément compris entre 1 et 9
+Fin algo
+
+

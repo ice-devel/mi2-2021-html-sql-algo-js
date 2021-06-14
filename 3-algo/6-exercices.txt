@@ -1,0 +1,9 @@
+Exercices LOOP
+
+Exo 1
+Demander à l'utilsiateur de saisir 5 notes
+Afficher la moyenne de ces notes
+
+2 versions :
+- une sans boucle
+- une avec boucle
