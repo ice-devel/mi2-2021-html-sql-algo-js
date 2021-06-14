@@ -1,0 +1,16 @@
+LES VARIABLES
+
+Les variables sont des espaces en mémoire vive, espaces qui peuvent recevoir des valeurs.
+Les variables dans un programme sont typées (type hinting).
+
+- Types primitifs
+    - Chaine de caractères (string)
+    - entier (integer)
+    - décimal (float / number)
+    - booléen (boolean)
+
+Dans les langages faiblement typé, comme PHP ou javascript, ce n'est pas obligatoire
+de déclarer/typer les variables. Les langages typés sont interprétés. (compilé à l'exécution)
+
+Dans d'autres langages comme Java, C#, c'est obligatoire de le faire.
+Les langages fortement typés sont compilés (compilation d'avance avant le lancement du programme).

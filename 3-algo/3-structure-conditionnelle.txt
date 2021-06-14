@@ -1,0 +1,134 @@
+LES STRUCTURES CONDITIONNELLES
+
+I - SI/SINON (IF/ELSE)
+Tester une condition, puis exécuter des instructions si elle est vraie, en faire d'autres si elle est fausse.
+
+Variables
+    age: entier
+Debut algo
+    age = Lire "Quel est votre âge ?"
+
+    SI age >= 18
+        afficher "Tu peux rentrer"
+    SINON
+        afficher "Tu peux pas rentrer"
+    FIN SI
+Fin algo
+
+Cf. Algobox 2-isMajeur.alg
+
+II - SINON SI (ELSEIF)
+
+Variables
+    age: entier
+Debut algo
+    age = Lire "Quel est votre âge ?"
+
+    // Code fonctionnel mais pas terrible à cause de l'imbrication
+    SI age >= 18
+        afficher "Tu peux rentrer"
+    SINON
+        SI age >= 10
+            afficher "Tu peux pas rentrer"
+        SINON
+            afficher "J'appelle tes parents"
+        FIN SI
+    FIN SI
+
+    // La même avec un SINON SI
+    SI age >= 18
+        afficher "Tu peux rentrer"
+    SINON SI age >= 10
+        afficher "Tu peux pas rentrer"
+    SINON
+        afficher "J'appelle tes parents"
+    FIN SI
+Fin algo
+
+
+III - SELON (SWITCH)
+
+Variables
+    boisson: chaine
+Debut algo
+    boisson = Lire "Quelle boisson voulez ?"
+
+    // c'est possible mais autre possibilité
+    SI boisson == "Café"
+        Afficher "Voici votre café"
+    SINON SI boisson == "Thé"
+        Afficher "Un thé pour vous"
+    SINON SI boisson == "Jus de fruit"
+        Afficher "Voici le jus"
+    SINON
+        Afficher "Ce choix n'existe pas"
+    FIN SI
+
+    // avec un selon
+    SELON boisson
+        CAS "Café"
+             Afficher "Voici votre café"
+        CAS "Thé"
+            Afficher "Un thé pour vous"
+        CAS "Jus de fruit"
+            Afficher "Voici le jus"
+        DEFAUT
+             Afficher "Ce choix n'existe pas"
+    FIN SELON
+Fin algo
+
+IV - Cumuler les conditions
+
+On peut cumuler les conditions grâce aux opérateurs logiques ET et OU.
+On peut prioriser les OU grâce aux parenthèses.
+
+Début algo
+    SI 5 == 5 ET 6 < 10
+        // on rentre car les deux conditions sont vraies
+    FIN SI
+
+    SI 5 == 4 OU 6 < 10
+        // on rentre car au moins l'un des deux conditions est vraie
+    FIN SI
+
+    SI 5 == 5 ET 3 > 5 OU 9 == 9
+        // on rentre
+    FIN SI
+
+    SI 5 == 5 ET 3 > 5 OU 9 == 8
+        // on rentre pas
+    FIN SI
+
+    SI 5 == 5 ET (3 > 5 OU 9 == 9)
+        // on rentre
+    FIN SI
+Fin algo
+
+Variable
+    note: entier
+Debut algo
+    note = Lire "T'as eu combien ?"
+
+    SI note == 20
+        afficher "Super michel"
+    SINON SI note == 0
+        afficher "Ha bah bravo michel"
+    SINON SI note == 14 OU note == 15 OU note == 16
+        afficher "pas mal"
+    SINON
+        afficher "ok"
+    FIN SI
+
+    // avec un selon
+    SELON note
+        CAS 20
+            afficher "Super michel"
+        CAS 0
+            afficher "Ha bah bravo michel"
+        CAS 14
+        CAS 15
+        CAS 16
+            afficher "pas mal"
+        DEFAUT
+            afficher "ok"
+Fin algo

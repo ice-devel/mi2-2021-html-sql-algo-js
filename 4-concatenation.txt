@@ -1,0 +1,19 @@
+LA CONCATENATION
+
+Assembler des chaines de caractères ensemble.
+
+Variable
+    chaine1, chaine2, chaine3, chaine4: chaines de caractères
+Debut algo
+    chaine1 = "Bonjour"
+    chaine2 = "tout"
+    chaine3 = "le monde"
+    // affiche "Bonjourtoutle monde"
+    afficher chaine1 CONCAT chaine2 CONCAT chaine3
+
+    // affiche "Bonjour tout le monde"
+    afficher chaine1 CONCAT " " CONCAT chaine2 CONCAT " " CONCAT chaine3
+
+    chaine4 = chaine1 CONCAT " " CONCAT chaine2 CONCAT " " CONCAT chaine3
+    afficher chaine4
+Fin algo

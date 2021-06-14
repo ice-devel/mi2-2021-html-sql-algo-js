@@ -1,0 +1,40 @@
+Un algorithme c'est une suite d'instruction destinée à résoudre un problème.
+
+Exemple : J'ai faim
+
+Début algorithme
+    Se lever
+    Marcher jusqu'à la cuisine
+    Sortir les ingrédients
+    Préparer la recette
+    Faire cuire
+    Servir
+    Manger
+Fin algo
+
+Utilisation du pseudo-code
+
+Variables
+    Ingredient1
+    Ingredient2
+    ingredient3
+Début algo
+    Sortir ingredient1
+    Sirtir ingredient2
+    Mélanger ingredient1 avec ingredient2 donne ingredient3
+    Mettre ingredient3 au four
+    Sortir la préparation
+Fin algo
+
+Variables
+    chiffre1 : entier
+    chiffre2 : entier
+    produit : entier
+Debut algo
+    chiffre1 = Lire "Quel est le premier chiffre ?"
+    chiffre2 = Lire "Quel est le deuxième chiffre ?"
+    resultat = chiffre1 * chiffre2
+    afficher resultat
+Fin algo
+
+Cf. Algobox 1-multiplication.alg

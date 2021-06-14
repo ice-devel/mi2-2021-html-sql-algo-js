@@ -1,0 +1,20 @@
+Exercices :
+
+Exo 1 :
+Demander à l'utilisateur deux nombres, afficher
+le résultat de la soustraction
+
+Exo 2 :
+Demander à l'utilisateur deux nombres compris entre
+5 et 50 et afficher le résultat de la multiplication.
+Si les nombres donnés par l'utilisateur ne sont pas compris
+entre 5 et 50, afficher un message d'erreur à l'utilisateur.
+
+Exo 3 :
+Demander à l'utilisateur deux nombres et afficher le résultat
+de la division. Vérifiez d'abord si la divison est possible.
+
+Exo 4 :
+Demander à l'utilisateur son âge, et afficher s'il est majeur ou mineur.
+Si il est mineur, il faut afficher en plus le nombre d'années
+qu'il lui reste avant d'être majeur.
