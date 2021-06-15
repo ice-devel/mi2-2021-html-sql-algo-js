@@ -41,4 +41,22 @@ Debut algo
     somme = somme + note
 
     moyenne = somme / 5
+
+    nbNotes = 15
+    somme = 0
+    POUR i de 1 à nbNotes par pas de 1
+        note = Lire "Note " CONCAT i
+        somme = somme + note
+    FIN POUR
+
+    moyenne = somme / nbNotes
 Fin algo
+
+Exo 2
+Demander à l'utilisateur de saisir des notes,
+tant qu'il ne tape pas -1 comme note, on continue.
+
+Afficher la moyenne quand il a fini.
+
+
+
