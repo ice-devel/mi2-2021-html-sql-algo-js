@@ -1,0 +1,114 @@
+Calcul age
+
+
+Guullaume
+variables
+    entrerjour: entier
+    entrermois: entier
+    entrerannee: entier
+    age: entier
+debut algo
+    entrerjour = lire "saisir jour de naissance"
+    entrermois = lire "saisir mois de naissance"
+    entrerannee = lire "saisir année de naissance"
+
+    SI entrermois < month()
+        age = year() - entrerannee
+    SINON entrermois = month()
+        SI entrerjour <= day()
+            age = year() - entrerannee
+        SINON age = year() - entrerannee - 1
+        fin SI
+    SINON age = year() - entrerannee - 1
+    FIN SI
+    afficher "ton age est de " concat age concat " ans"
+fin algo
+
+Léo
+Variables
+    annee : entier
+    mois : entier
+    jour : entier
+    age : entier
+Début algo
+    anneeActuelle = year()
+    moisActuel = month()
+    jourActuel = day()
+
+    afficher "Entrez votre date de naissance"
+    Lire jour
+    Lire mois
+    Lire annee
+
+    SI (mois==moisActuel ET jour<=jourActuel) OU (mois<moisActuel)
+        age = anneeActuelle-annee
+    SINON SI (mois=moisActuel ET jour<jourActuel) OU (mois<moisActuel)
+        age = (anneeActuelle-annee) - 1
+    Fin SI
+
+    SI age > 1
+        afficher "Vous avez " CONCAT age CONCAT " ans."
+    SINON
+        afficher "Vous avez " CONCAT age CONCAT " an."
+    Fin SI
+Fin algo
+
+Joshua
+Début algo
+    yearActuel = year()
+    monthActuel = month()
+    dayActuel = day()
+
+    dateUser = Lire "Quel est votre date de naissance : YYYY/MM/DD ?"
+
+    YYYY = yearUser
+    MM = monthUser
+    DD = dayUser
+
+    Si  monthActuel == monthUser ET dayActuel < dayUser
+        ageUser = (yearActuel -1) - yearUser
+            afficher "Vous avez " concat ageUser
+
+    Sinon si monthActuel == monthUser ET dayActuel > dayUser
+        ageUser = yearActuel - yearUser
+            afficher "Vous avez " concat ageUser
+
+    Sinon si monthActuel < monthUser
+        ageUser = (yearActuel -1) - yearUser
+            afficher "Vous avez " concat ageUser
+
+    Sinon si monthActuel > monthUser
+        ageUser = yearActuel - yearUser
+            afficher "Vous avez " concat ageUser
+    Fin si
+Fin algo
+
+steeve
+Variables
+    yourannee : entier
+    yourmois : entier
+    yourday : entier
+    age : entier
+algo
+    anneeActuelle = year()
+    moisActuelle = month()
+    dayActuelle = day()
+
+    yourannee = lire "Quelle est on annee de naissance"
+    yourmois = lire "Quelle est on mois de naissance"
+    yourday = lire "Quelle est on jour de naissance"
+    affiche:"yourday-" concat "yourmois-" concat "yourannee."
+
+    SI month() >= yourmois
+        si day() > yourday
+            age = (year() - yourannee)-1
+            affiche: Vous avez "age" ans
+        sinon si day() <= yourday
+            age = year()-yourannee
+            affiche: Vous avez "age" ans
+        fin de si
+    sinon
+        age = age = year()-yourannee
+        affiche: Vous avez "age" ans
+    fin si
+fin algo

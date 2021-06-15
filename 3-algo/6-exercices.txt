@@ -132,4 +132,111 @@ compteur => 4
 i  =>  3
 compteur => 9
 
+variables
+    fruit: texte
+debut algo
+    fruit = saisir "entrer un fruit "
+    SELON fruit
+        CAS "fraise"
+            afficher "cool"
+        CAS "pasteque"
+            afficher "pas cool"
+        CAS "kiwi"
+            afficher "etrange"
+        DEFAUT
+            afficher "comme tu veux"
+    FIN SELON
 
+    fruit = saisir "entrer un fruit "
+    SI fruit == "fraise"
+        afficher "cool"
+    SINON SI fruit == "pasteque"
+        afficher "pas cool"
+    SINON SI fruit == "kiwi"
+        afficher "etrange"
+    SINON
+        afficher "comme tu veux"
+    FIN SELON
+FIN algo
+
+Correction
+Variables
+    anneeActuelle: entier
+    anneeNaissance: entier
+    age: entier
+Debut algo
+    anneeActuelle = year()
+    moisActuel = month()
+    jourActuel = day()
+
+    anneeNaissance = Saisir "Entrer votre année de naissance"
+    moisNaissance = Saisir "Entrer votre mois de naissance"
+    dayNaissance = Saisir "Entrer votre jour de naissance"
+
+    // VERSION 1
+    SI moisActuel > moisNaissance
+        age = anneeActuelle - anneeNaissance
+    FIN SI
+
+    SI moisActuel == moisNaissance
+       SI jourActuel >= jourNaissance
+          age = anneeActuelle - anneeNaissance
+       SINON
+          age = anneeActuelle - anneeNaissance - 1
+       FIN SI
+    FIN SI
+
+     SI moisActuel < moisNaissance
+        age = anneeActuelle - anneeNaissance - 1
+     FIN SI
+
+     // VERSION 2
+    SI moisActuel > moisNaissance
+        age = anneeActuelle - anneeNaissance
+    SINON SI moisActuel == moisNaissance
+       SI jourActuel >= jourNaissance
+          age = anneeActuelle - anneeNaissance
+       SINON
+          age = anneeActuelle - anneeNaissance - 1
+       FIN SI
+    SINON SI moisActuel < moisNaissance
+       age = anneeActuelle - anneeNaissance - 1
+    FIN SI
+
+    // VERSION 3
+    SI (moisActuel > moisNaissance) OU (moisActuel == moisNaissance ET jourActuel >= jourNaissance)
+        age = anneeActuelle - anneeNaissance
+    SINON SI moisActuel == moisNaissance ET jourActuel < jourNaissance
+       age = anneeActuelle - anneeNaissance - 1
+    SINON SI moisActuel < moisNaissance
+       age = anneeActuelle - anneeNaissance - 1
+    FIN SI
+
+    // VERSION 4
+    SI (moisActuel > moisNaissance) OU (moisActuel == moisNaissance ET jourActuel >= jourNaissance)
+        age = anneeActuelle - anneeNaissance
+    SINON SI (moisActuel == moisNaissance ET jourActuel < jourNaissance) OU (moisActuel < moisNaissance)
+       age = anneeActuelle - anneeNaissance - 1
+    FIN SI
+
+    // VERSION 5
+    SI (moisActuel > moisNaissance) OU (moisActuel == moisNaissance ET jourActuel >= jourNaissance)
+        age = anneeActuelle - anneeNaissance
+    SINON
+       age = anneeActuelle - anneeNaissance - 1
+    FIN SI
+
+    // VERSION 6
+    age = anneeActuelle - anneeNaissance
+    SI (moisActuel > moisNaissance) OU (moisActuel == moisNaissance ET jourActuel >= jourNaissance)
+        // y'a rien ici ? C nul
+    SINON
+       age = age - 1
+    FIN SI
+
+    // VERSION 7
+    age = anneeActuelle - anneeNaissance
+    SI (moisActuel < moisNaissance) OU (moisActuel == moisNaissance ET jourActuel < jourNaissance)
+       age = age - 1
+    FIN SI
+Fin algo
