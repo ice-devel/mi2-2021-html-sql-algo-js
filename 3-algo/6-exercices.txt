@@ -58,5 +58,78 @@ tant qu'il ne tape pas -1 comme note, on continue.
 
 Afficher la moyenne quand il a fini.
 
+Variables
+    numeronote: entier
+    note: entier
+    somme: entier
+    moyenne: entier
+debut algo
+    numeronote = 0
+    note = 0
+    somme = 0
+
+    TANT QUE note != -1
+        note = lire "saisir note n°" concat (numeronote + 1)
+        SI note != -1
+            somme = somme + note
+            numeronote = numeronote + 1
+        FIN SI
+    fin TANT QUE
+
+    moyenne = somme / numeronote
+    afficher "la moyenne de tes notes est " concat moyenne
+fin algo
+
+
+Debut algo
+    numeronote = 0
+    somme = 0
+    note = saisir "Saisissez votre note"
+
+    TANT QUE note != -1
+        somme = somme + note
+        numeronote = numeronote + 1
+        note = saisir "Bien reçu. Saisissez la prochaine note"
+    FIN TANT QUE
+
+    moyenne = somme / numeronote
+    afficher "la moyenne de tes notes est " concat moyenne
+Fin algo
+
+Exo 3
+Demander à l'utilisateur un nom de fruit, lui afficher :
+- Cool dans le cas où il choisit "fraise"
+- Pas cool dans le cas où il dit "pastèque"
+- Etrange dans le cas où il dit kiwi
+- Comme tu veux dans tous les autres cas
+
+Exo 4
+Demander à l'utilisateur son année de naissance (2000),
+son mois de naissance (10), son jour de naissance (3)
+
+Calculer son âge en année précisément
+(en prenant en compte si l'anniversaire est passé ou non)
+
+On suppose que on peut récupérer la date actuelle de cette manière :
+anneeActuelle = year()
+moisActuel = month()
+jourActuel = day()
+
+Faites des traces si ça peut vous aider.
+
+Debut algo
+    compteur = 0
+    POUR i de 1 à 5 par pas de 1
+        compteur = i * i
+    FIN POUR
+Fin algo
+
+compteur  =>  0
+i  =>  1
+compteur => 1
+i  =>  2
+compteur => 4
+i  =>  3
+compteur => 9
 
 
