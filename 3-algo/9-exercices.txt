@@ -1,0 +1,23 @@
+Exo 1
+Demander à l'utilisateur un chiffre
+Afficher le carré de ce chiffre
+
+Exo 2
+Demander à l'utilisateur son année de naissance
+Et afficher l'age en année approximatif (cad pas besoin
+de se préoccuper de savoir si l'anniversaire est passé)
+year(): fonction à utiliser pour récupérer l'année actuelle
+
+Exo 3
+Demander à l'utilisateur de saisir des notes, et de taper -1
+quand il souhaite arrêter.
+
+- Stocker chacune des notes saisies par l'utilisateur dans un tableau
+- Ensuite (une fois sorti de la boucle, celle qui sert à saisir les notes)
+Vous afficher chacune des notes, précédées de leur indice dans ce tableau
+0 20
+1 14
+2 3
+- Afficher la moyenne sous ce format :
+"Moyenne = Somme / Nombre de notes = moyenne calculée"
+Exemple : "Moyenne = 39 / 3 = 13"

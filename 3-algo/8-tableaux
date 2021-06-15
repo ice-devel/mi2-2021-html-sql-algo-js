@@ -44,5 +44,4 @@ Debut algo
     POUR CHAQUE note DANS notes
         Afficher note
     FIN POUR CHAQUE
-
 Fin algo
