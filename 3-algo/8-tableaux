@@ -1,0 +1,48 @@
+Les TABLEAUX (ARRAY)
+
+Variables
+    notes: tableau
+    // langages fortement typé : un tableau ne peut avoir qu'un seul type de valeurs
+    notes: tableau de entier
+Debut algo
+    // 1 - ajouter un élément dans un tableau : push
+    // Ajouter élement dans tableau
+
+    Ajouter 20 dans notes
+    Ajouter 13 dans notes
+    Ajouter 5 dans notes
+    // à cette ligne, le taleau "notes" possèdent 3 éléments
+
+    // 2 - accéder à un élément : [i]
+    Afficher notes // ça c'est nul : on affiche pas un tableau, on affiche ses éléments
+
+    Afficher notes[0] // affiche le premier élément
+    SI notes[0] == 20
+        // on rentre
+    FIN SI
+
+    // 3 - modifier un élément
+    // modifier le deuxième élément : ON COMMENCE A ZERO LES INDICES donc indice 1
+    notes[1] = 14
+
+    // 4 - afficher tous les éléments d'un tableau
+    afficher notes[0]
+    afficher notes[1]
+    afficher notes[2]
+
+    POUR i de 0 à 2 par pas de 1
+        Afficher notes[i]
+    FIN POUR
+
+    // parcourir le tableau en récupérant dynamiquement le nb d'éléments
+
+    POUR i de 0 à LONGUEUR(notes)-1 par pas de 1
+        Afficher notes[i]
+    FIN POUR
+
+    // Boucle POUR CHAQUE / FOREACH : parcour d'un tableau sans gérer les indices
+    POUR CHAQUE note DANS notes
+        Afficher note
+    FIN POUR CHAQUE
+
+Fin algo
