@@ -92,4 +92,26 @@ Deux boucles : une pour remplir le tableau, une seconde partie
 pour trouver la note la plus haute dans ce tableau
 
 
+Variables
+    max: entier
+    notes: tableau
+    note: entier
+    i: entier
+Debut algo
+    note = saisir "Première note ?"
+    TANT QUE note != -1
+        Ajouter note dans notes
+        note = saisir "Note suivante ?"
+    FIN TANT QUE
+
+    max = notes[0]
+    POUR i de 1 à LONGUEUR(notes)-1 par pas de 1
+        SI notes[i] > max
+            max = notes[i]
+        FIN SI
+    FIN POUR
+
+    Afficher max
+Fin algo
+
 
