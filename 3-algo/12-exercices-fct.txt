@@ -4,15 +4,63 @@ et qui retourne le résultat de cette addition.
 
 Utiliser cette fonction dans un algo, et y afficher le résultat.
 
+Variables
+    somme: entier
+Debut fonction addition(nombre1:entier, nombre2:entier) // signature
+    // corps
+    somme = nombre1 + nombre2
+    retourner somme
+Fin fonction
+
+Variables
+    nb1: entier
+    nb2: entier
+    resultat: entier
+Debut algo
+    nb1 = saisir "Entrez un nombre"
+    nb2 = saisir "Entre un autre nombre"
+    resultat = addition(nb1, nb2)
+    afifcher resultat
+Fin algo
 
 Exo 2 :
 Créer une fonction qui prend en paramètre un âge, et retourne si oui
-ou non cet âge est celui d'une personne majeure.
+ou non cet âge est celui d'une personne majeure : VRAI ou FAUX
 
 Utilisez cette fonction dans un algo en demandant à l'utilisateur son âge.
 Et affichez, si l'utilisateur est majeur ou mineur.
 
 variableBooleenne = vrai
 SI variableBooleenne == vrai
-
 FIN SI
+
+Variables
+    estMajeur: booléen
+Debut fonction majeur(age:entier)
+    SI age >= 18
+        estMajeur = vrai
+    SINON
+        estMajeur = faux
+    FIN SI
+
+    retourner estMajeur
+Fin fonction
+
+Variables
+    ageUser: entier
+    isMajeur: booléen
+Debut algo
+    ageUser = saisir "Quel est votre âge ?"
+    isMajeur = majeur(ageUser)
+
+    SI isMajeur == vrai
+        afficher "Vous êtes majeur"
+    SINON
+        afficher "Vous êtes mineur"
+    FIN SI
+
+
+    isMajeur = majeur(13)
+Fin algo
+
+
