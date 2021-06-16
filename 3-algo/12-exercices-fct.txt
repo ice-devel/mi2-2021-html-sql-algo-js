@@ -1,0 +1,18 @@
+Exo 1 :
+Créer une fonction qui ajoute deux nombres passés en paramètres,
+et qui retourne le résultat de cette addition.
+
+Utiliser cette fonction dans un algo, et y afficher le résultat.
+
+
+Exo 2 :
+Créer une fonction qui prend en paramètre un âge, et retourne si oui
+ou non cet âge est celui d'une personne majeure.
+
+Utilisez cette fonction dans un algo en demandant à l'utilisateur son âge.
+Et affichez, si l'utilisateur est majeur ou mineur.
+
+variableBooleenne = vrai
+SI variableBooleenne == vrai
+
+FIN SI

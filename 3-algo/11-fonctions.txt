@@ -1,0 +1,131 @@
+Les fonctions
+
+Une fonction est une suite d'instructions à laquelle on donne un nom,
+afin de pouvoir l'utiliser à plusieurs reprises sans avoir à
+la réécrire.
+
+I intro
+Exemple :
+
+Variables
+Debut fonction direBonjour
+    Afficher "Bonjour !"
+    Afficher "Bonjour !"
+Fin fonction
+
+Variables
+Debut algo
+    direBonjour() // execution de la fonction
+    direBonjour() // 2eme exécution
+    direBonjour() // 3eme exécution
+    // 6 "Bonjour !" seront affichés à l'écran
+Fin algo
+
+II variables locales
+A - variables déclarées
+Variables
+    // variables locales : n'existent que la fonction où elles sont
+    // déclarées
+    mot1: chaine
+    mot2: chaine
+Debut fonction direBonjourCaVa
+    mot1 = "Bonjour !"
+    mot2 = "Ca va ?"
+    afficher mot1 CONCAT " " CONCAT mot2
+
+    // a la fin de la fonction, les variables locales sont détruites
+Fin fonction
+
+Variables
+    mot2: chaine
+Debut Algo
+    mot2 = "Coucou"
+    direBonjourCava()
+    // dans l'algo, la variable mot1 n'existe pas, donc ça plante
+    afficher mot1
+
+    // cette ligne affiche : "Coucou"
+    afficher mot2
+
+    direBonjourCava()
+Fin algo
+
+B - paramètres d'entrée
+Une fonction peut avoir des paramètres d'entrée, ce sont
+des valeurs attendues lors de l'appel de la fonction.
+
+Variables
+Debut fonction direBonjourA(nom:chaine)
+    afficher "Bonjour " CONCAT nom
+Fin fonction
+
+Variables
+    firstname: chaine
+Debut algo
+    firstname = saisir "Quel est votre nom ?"
+    direBonjourA(firstname)
+
+    direBonjourA("Aurélie")
+    direBonjourA("Jean")
+    direBonjourA("Jack")
+
+    // cette ligne plante car le paramètre
+    // d'entrée nom est obligatoire
+    direBonjourA() // !!!!!!!!!!
+Fin algo
+
+Les paramètres peuvent être obligatoires ou facultatifs
+Paramètre facultatif = paramètre avec une valeur par défaut
+
+Variables
+Debut fonction saluer(nom:chaine, ponctuation:chaine = "!")
+    afficher "Salut " CONCAT nom CONCAT ponctuation
+Fin fonction
+
+Variables
+    firstname: chaine
+Debut algo
+    firstname = "Fab"
+
+    // affiche Salut Fab!
+    saluer(firstname, "!")
+
+    // affiche Salut Fab.
+    saluer(firstname, ".")
+
+    // affiche Salut Fab!
+    saluer("Fab")
+Fin algo
+
+III LA valeur de retour
+Une fonction peut retourner une valeur, c'est une valeur qui pourra
+être utilisée à l'endroit où la fonction a été appelée.
+
+Une fontion se termine dès lors qu'elle rencontre
+l'instruction "retourner". Elle va jusqu'au bout des instructions
+su aucune instruction "retourner" n'est rencontrée.
+
+Variables
+    produit: entier
+Debut fonction multiplication(chiffre1:entier, chiffre2:entier)
+    produit = chiffre1 * chiffre2
+    retourner produit //  la fonction retourne une valeur et s'arrête
+
+    afficher "coucou" // la fonction ne va pas jusqu'ici donc ligne inutile
+Fin fonction
+
+Variables
+    nb1: entier
+    nb2: entier
+    resultat: entier
+Debut algo
+    nb1 = 5
+    nb2 = 14
+    resultat = 70 5
+
+    SI resultat > 50
+        // on rentre
+    FIN SI
+
+    EnregistrerEnBase(resultat)
+Fin algo
