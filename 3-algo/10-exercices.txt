@@ -3,3 +3,93 @@ Demander à l'utilisateur de saisir un nombre de notes (-1 pour stop)
 Stocker ces notes dans un tableau
 
 Afficher la note la plus basse.
+Deux boucles : une pour remplir le tableau, une seconde partie
+pour trouver la note la plus petite dans ce tableau
+
+13 16 19
+
+si 13 < 16 and 13 < 19
+    // 13 plus petit
+fin si
+
+14 15 6 7
+
+min = notes[0]
+POUR i de 1 à nbNotes-1 par pas de 1
+    SI notes[i] < min
+        min = notes[i];
+    Fin SI
+FIN POUR
+
+afficher min
+
+min : 13
+min : 9
+min : 8
+
+
+note1 = 14
+note2 = 15
+note3 = 3
+
+SI note1 <= note2 ET note1 <= note3
+    afficher note1
+SINON SI note2 <= note1  ET note2 <= note3
+    afficher note2
+SINON SI note3 <= note1  ET note3 <= note2
+    afficher note3
+FIN SI
+
+min = note1
+
+SI note2 <= min
+    min = note2
+SINON
+    min = min
+FIN SI
+
+SI note3 <= min
+    min = note3
+SINON
+    min = min
+FIN SI
+
+SI note4 <= min
+    min = note4
+SINON
+    min = min
+FIN SI
+
+Variables
+    min: entier
+    notes: tableau
+    note: entier
+    i: entier
+Debut algo
+    note = saisir "Première note ?"
+    TANT QUE note != -1
+        Ajouter note dans notes
+        note = saisir "Note suivante ?"
+    FIN TANT QUE
+
+    min = notes[0]
+    POUR i de 1 à LONGUEUR(notes)-1 par pas de 1
+        SI notes[i] < min
+            min = notes[i]
+        FIN SI
+    FIN POUR
+
+    Afficher min
+Fin algo
+
+
+Exo 2
+Demander à l'utilisateur de saisir un nombre de notes (-1 pour stop)
+Stocker ces notes dans un tableau
+
+Afficher la note la plus haute.
+Deux boucles : une pour remplir le tableau, une seconde partie
+pour trouver la note la plus haute dans ce tableau
+
+
+
