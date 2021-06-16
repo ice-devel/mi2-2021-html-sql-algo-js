@@ -2,11 +2,30 @@ Exo 1
 Demander à l'utilisateur un chiffre
 Afficher le carré de ce chiffre
 
+Variables
+    chiffre: entier
+    multiplication: entier
+Debut algo
+    afficher "Carré de ce chiffre"
+    Lire chiffre
+    multiplication = chiffre * chiffre
+    afficher multiplication
+Fin algo
+
 Exo 2
 Demander à l'utilisateur son année de naissance
 Et afficher l'age en année approximatif (cad pas besoin
 de se préoccuper de savoir si l'anniversaire est passé)
 year(): fonction à utiliser pour récupérer l'année actuelle
+Variables
+    a2n: entier
+    age: entier
+Debut algo
+    afficher "Votre année de naissance ?"
+    Lire a2n
+    age = year() - a2n
+    afficher age
+Fin age
 
 Exo 3
 Demander à l'utilisateur de saisir des notes, et de taper -1
@@ -14,10 +33,39 @@ quand il souhaite arrêter.
 
 - Stocker chacune des notes saisies par l'utilisateur dans un tableau
 - Ensuite (une fois sorti de la boucle, celle qui sert à saisir les notes)
-Vous afficher chacune des notes, précédées de leur indice dans ce tableau
+Vous affichez chacune des notes, précédées de leur indice dans ce tableau
 0 20
 1 14
 2 3
 - Afficher la moyenne sous ce format :
 "Moyenne = Somme / Nombre de notes = moyenne calculée"
 Exemple : "Moyenne = 39 / 3 = 13"
+
+Variables
+    listeNotes: tableau
+    note: entier
+    nbNotes: entier
+    somme: entier
+    moyenne: decimal
+    i: entier
+Debut algo
+    note = 0
+    somme = 0
+    moyenne = 0
+
+    TANT QUE note != -1
+        note = saisir "La note ?"
+        SI note != -1
+            Ajouter note dans listeNotes
+        FIN SI
+    FIN TANT QUE
+
+    nbNotes = LONGUEUR(listeNotes)
+    POUR i de 0 à nbNotes-1 par pas de 1
+        afficher i CONCAT " " CONCAT listeNotes[i]
+        somme = somme + listeNotes[i]
+    FIN POUR
+
+    moyenne = somme / nbNotes
+    Afficher "Moyenne = " CONCAT somme CONCAT "/" CONCAT nbNotes CONCAT "=" CONCAT moyenne
+FIN POUR

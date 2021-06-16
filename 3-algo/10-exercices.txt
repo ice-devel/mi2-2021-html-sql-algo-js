@@ -1,0 +1,5 @@
+Exo 1
+Demander à l'utilisateur de saisir un nombre de notes (-1 pour stop)
+Stocker ces notes dans un tableau
+
+Afficher la note la plus basse.
