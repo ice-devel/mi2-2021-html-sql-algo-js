@@ -51,6 +51,7 @@ Variables
     isMajeur: booléen
 Debut algo
     ageUser = saisir "Quel est votre âge ?"
+    // on appelle la fonction définie au dessus :
     isMajeur = majeur(ageUser)
 
     SI isMajeur == vrai
@@ -62,5 +63,20 @@ Debut algo
 
     isMajeur = majeur(13)
 Fin algo
+
+Exo 3
+Créer une fonction qui prend en paramètre une annee de naissance,
+un mois de naissance, et un jour de naissance
+et qui retourne l'âge correspondant à cette date
+
+Utilisez cette fonction dans un algo, en demandant à l'utilisateur
+les trois informations nécessaires
+
+Exo 4
+Créer une fonction qui prend un tableau en paramètre
+et qui retourne la valeur la plus petite qui s'y trouve
+
+Utilisez cette fonction dans un algo
+
 
 
