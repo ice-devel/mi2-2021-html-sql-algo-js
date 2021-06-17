@@ -72,11 +72,77 @@ et qui retourne l'âge correspondant à cette date
 Utilisez cette fonction dans un algo, en demandant à l'utilisateur
 les trois informations nécessaires
 
+Variables
+    anneeActuelle: entier
+    moisActuel: entier
+    jourActuel: entier
+    age: entier
+Debut fonction agePersonne(jourNaissance:entier, moisNaissance: entier, anneeNaissance:entier)
+    anneeActuelle = year()
+    moisActuel = month()
+    jourActuel = day()
+
+    age = anneeActuelle - anneeNaissance
+    SI moisActuel < moisNaissance OU moisActuel == moisNaissance ET jourActuel < jourNaissance
+        age = age - 1
+    FIN SI
+
+    retourner age
+Fin fonction
+
+Variables
+    yearUser: entier
+    monthUser: entier
+    dayUser: entier
+    age: entier
+Debut algo
+    yearUser = lire "Quelle est votre année de naissance ?"
+    monthUser = lire "Quel est votre mois de naissance ?"
+    dayUser = lire "Quel est votre jour de naissance ?"
+
+    age = agePersonne(dayUser, monthUser, yearUser)
+    afficher age
+Fin algo
+
+
 Exo 4
 Créer une fonction qui prend un tableau en paramètre
 et qui retourne la valeur la plus petite qui s'y trouve
 
-Utilisez cette fonction dans un algo
+Variables
+    i: entier
+    min: entier
+Debut fonction minimum(tab:tableau)
+    min = tab[0]
+    POUR i de 0 de LONGUEUR(tab)-1 par pas de 1
+        SI tab[i] < min
+            min = tab[i]
+        FIN SI
+    FIN POUR
 
+    retourner min
+Fin fonction
+
+Utilisez cette fonction dans un algo
+Variables
+    mini: entier
+    tab: tableau
+    tab2: tableau
+Debut algo
+    ajouter 10 dans tab
+    ajouter 11 dans tab
+    ajouter 15 dans tab
+
+    mini = minimum(tab)
+    afficher mini
+
+
+    ajouter 22 dans tab2
+    ajouter 11 dans tab2
+    ajouter 3 dans tab2
+
+    mini = minimum(tab2)
+    afficher mini
+fin algo
 
 
