@@ -150,6 +150,20 @@ Créer une fonction qui prend en paramètre un nombre
 et qui retourne le carré de ce nombre.
 Ensuite écrivez un algo qui utilise cette fonction.
 
+Variables
+    carre: entier
+Debut fonction carre(nombre:entier)
+    carre = nombre * nombre
+    retourner carre
+Fin fonction
+
+Variables
+    nombre: entier
+Debut algo
+    nombre = lire "entrez un nombre"
+    afficher carre(nombre)
+Fin algo
+
 Exo 6 :
 Créer une fonction qui prend un tableau en paramètre
 et retourne un nouveau tableau dont les éléments sont les éléments du tableau
@@ -157,6 +171,29 @@ en paramètre, mais inversés.
 Exemple : le tableau en paramètre : [1, 4, 5]
 Vous devez retourner le tableau [5, 4, 1]
 Ecrivez un algo qui construit un tableau et utilise cette fonction.
+
+Variables
+    ts: tableau
+Debut fonction inverser(tab:tableau)
+    POUR i allant de LONGUEUR(tab)-1 à 0 par pas de -1
+        ajouter tab[0] dans ts
+    FIN POUR
+
+    retourner ts
+Fin fonction
+
+Variables
+    listeNotes: tableau
+    tabInverse: tableau
+Debut algo
+    ajouter 10 dans listeNotes
+    ajouter 18 dans listeNotes
+    // listeNotes contient 10, 18
+
+    // on stocke dans la variable tabInverse le tableau que nous renvoie la fct inverser
+    tabInverse = inverser(listeNotes)
+Fin algo
+
 
 Exo 7 :
 Créer une fonction qui dit si oui ou non une chaine passée en paramètre est un palindrome.
@@ -171,3 +208,78 @@ mot = "salut"
 mot[0] -> "s"   mot[1] -> "a" mot[4] -> "t"
 
 Utilisez cette fonction dans un algo.
+
+1 - créer un mot dans l'autre sens, puis de vérifiez si les deux mots sont équivalents
+2 - comparer les lettres opposées : la première avec la dernière, etc.
+
+mot1 = "salut"
+mot2 = "tulas"
+
+s   0       t   4
+a   1       u   3
+l   2       l   2
+u   3       a   1
+t   4       s   0
+
+Variables
+    motInverse: chaine
+    palindrome: booleen
+Debut fonction isPalindrome(mot: chaine)
+    motInverse = ""
+    POUR i de LONGUEUR(mot)-1 à 0 par pas de -1
+        motInverse = motInverse CONCAT mot[i]
+    FIN POUR
+
+    SI mot == motInverse
+        palindrome = vrai
+    SINON
+        palindrome = faux
+    FIN SI
+
+    retourner palindrome
+FIN FONCTION
+
+salut : 5 lettres : 2 itérations : (5 - 1) / 2
+s   t   0   4   LONGUEUR(mot)-1-0
+a   u   1   3   LONGUEUR(mot)-1-1
+l   l   2   2   LONGUEUR(mot)-1-2
+u   a   3   1   LONGUEUR(mot)-1-3
+t   s   4   0   LONGUEUR(mot)-1-4
+
+test 4 lettres : 2 itérations
+t t
+e s
+s e
+t t
+
+coucou 6 lettres : 3 itérations
+c   u
+o   o
+u   c
+c   u
+o   o
+u   c
+
+Variables
+    palindrome: booleen
+Debut fonction isPalindrome(mot: chaine)
+    palindrome = vrai
+    POUR i de 0 à ARRONDIR_INFERIEUR(LONGUEUR(mot) / 2) par pas de 1
+        SI mot[i] != mot[LONGUEUR(mot)-1-i]
+            palindrome = faux
+        FIN SI
+    FIN POUR
+
+    i = 0
+    palindrome = vrai
+    TANT QUE palindrome == vrai ET ARRONDIR_INFERIEUR(LONGUEUR(mot) / 2)
+        SI mot[i] != mot[LONGUEUR(mot)-1-i]
+            palindrome = faux
+        FIN SI
+
+        i = i + 1
+    FIN TANT QUE
+
+    retourner palindrome
+Fin fonction
+
