@@ -145,4 +145,29 @@ Debut algo
     afficher mini
 fin algo
 
+Exo 5 :
+Créer une fonction qui prend en paramètre un nombre
+et qui retourne le carré de ce nombre.
+Ensuite écrivez un algo qui utilise cette fonction.
 
+Exo 6 :
+Créer une fonction qui prend un tableau en paramètre
+et retourne un nouveau tableau dont les éléments sont les éléments du tableau
+en paramètre, mais inversés.
+Exemple : le tableau en paramètre : [1, 4, 5]
+Vous devez retourner le tableau [5, 4, 1]
+Ecrivez un algo qui construit un tableau et utilise cette fonction.
+
+Exo 7 :
+Créer une fonction qui dit si oui ou non une chaine passée en paramètre est un palindrome.
+
+kayak : kayak -> palindrome
+salut : tulas -> pas palindrome
+
+Vous pouvez récupérer les lettres d'une chaine une par une avec des indices,
+comme si c'était un tableau
+
+mot = "salut"
+mot[0] -> "s"   mot[1] -> "a" mot[4] -> "t"
+
+Utilisez cette fonction dans un algo.
