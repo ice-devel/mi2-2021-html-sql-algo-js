@@ -68,4 +68,4 @@ Debut algo
 
     moyenne = somme / nbNotes
     Afficher "Moyenne = " CONCAT somme CONCAT "/" CONCAT nbNotes CONCAT "=" CONCAT moyenne
-FIN POUR
+FIN algo

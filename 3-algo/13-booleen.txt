@@ -1,0 +1,113 @@
+UTILISATION DES BOOLEENS ET CONDITIONS TERNAIRES
+
+I retourner une condition
+
+Variables
+    majeur: booleen
+Debut fonction estMajeur(age:entier)
+    // version 1
+    SI age >= 18
+        majeur = vrai
+    SINON
+        majeur = faux
+    FIN SI
+
+    retourner majeur
+
+    // version 2
+    SI age >= 18
+        retourner vrai
+    SINON
+        retourner faux
+    FIN SI
+
+    // version 3
+    SI age >= 18
+        retourner vrai
+    SINON
+        retourner faux
+    FIN SI
+
+    // version 4 : la condition étant elle-même la valeur vrai ou faux
+    // on peut retourner directement cette condition
+    retourner age >= 18
+Fin fonction
+
+Debut algo
+    tonAge = saisir "C'est quoi ton âge ?"
+
+    SI estMajeur(tonAge) == faux
+        afficher "Sors d'ici !"
+    FIN SI
+Fin algo
+
+II - Conditions ternaires
+
+Variables
+    texte: chaine
+Debut fonction ditSiTesMajeur(age:entier)
+    // version 1
+    SI age >= 18
+       afficher "vous êtes majeur"
+    SINON
+       afficher "vous êtes mineur"
+    FIN SI
+
+    // version 2
+    SI age >= 18
+        texte = "vous êtes majeur"
+    SINON
+        texte = "vous êtes mineur"
+    FIN SI
+
+    // version 3 : condition ternaire
+    texte = condition ? "valeur si vraie" : "vraie si fausse"
+    texte = age >= 18 ? "vous êtes majeur" : "vous êtes mineur"
+
+    afficher texte
+Fin fonction
+
+Variables
+    majeur: booleen
+Debut algo
+    // V1
+    SI age >= 18
+        majeur = vrai
+    SINON
+        majeur = faux
+    FIN SI
+
+    // V2
+    variable = condition ? "valeur si vraie" : "vraie si fausse"
+    majeur = age >= 18 ? vrai : faux
+
+    // V3 : la ternaire est inutile si c'est une valeur booleene qu'on affecte
+    // parce que la condition EST une valeur booléenne
+    majeur = age >= 18
+Fin algo
+
+Variable
+    tonAge: entier
+Debut algo
+    tonAge = saisir "C'est quoi ton âge ?"
+
+    // v1
+    SI estMajeur(tonAge) == vrai
+        afficher "Bienvenue Monseigneur"
+    FIN SI
+
+    // V2
+    SI estMajeur(tonAge)
+        afficher "Bienvenue Monseigneur"
+    FIN SI
+
+    // V2 bis
+    SI ! estMajeur(tonAge)
+        afficher "T'as pas l'âge ptit bonhomme"
+    FIN SI
+
+    // V2 bis
+    SI estMineur(tonAge)
+        afficher "T'as pas l'âge ptit bonhomme"
+    FIN SI
+Fin algo
