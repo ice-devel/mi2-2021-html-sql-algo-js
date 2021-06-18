@@ -15,6 +15,10 @@ debut algo
     panier[0].prix
 fin algo
 
+pour i de 0 à LONGUEUR(catalogue) par pas de 1
+    catalogue[i].nom   catalogue[i].prix
+fin pour
+
 - Il faut ajouter 4 produits dans le catalogue : vélo à 200€, cadre à 5€, chaise à 20€, un pull à 35€
 - Afficher ces produits à l'écran (nom + prix) en les préfixant par leur indice dans le tableau
 
@@ -33,3 +37,67 @@ et on passe à la suite quand il saisit -1.
 si nécessaire
 
 - Vous pouvez créer une fonction et l'utiliser si vous voulez
+
+
+Variables
+    Produit : structure {
+        nom: chaine,
+        prix: entier
+    }
+    catalogue: tableau
+    produit1: Produit
+    produit2: Produit
+    produit3: Produit
+    produit4: Produit
+    i: entier
+    choix: entier
+    panier: tableau
+    prd: Produit
+    total: entier
+    encaissement: entier
+Debut algo
+    produit1.nom = "Vélo"
+    produit1.prix = 200
+    ajouter produit1 dans catalogue
+
+    produit2.nom = "Cadre"
+    produit2.prix = 5
+    ajouter produit2 dans catalogue
+
+    produit3.nom = "Chaise"
+    produit3.prix = 20
+    ajouter produit3 dans catalogue
+
+    produit4.nom = "Pull"
+    produit4.prix = 35
+    ajouter produit4 dans catalogue
+
+    POUR i de 0 à LONGUEUR(catalogue)-1 par pas de 1
+        Afficher i CONCAT " " CONCAT catalogue[i].nom CONCAT " " catalogue[i].prix CONCAT "€"
+    FIN POUR
+
+    choix = saisir "Choisissez un produit par son indice"
+    TANT QUE choix != -1
+        ajouter catalogue[choix] dans panier
+        choix = saisir "Choisissez un produit par son indice"
+    FIN TANT QUE
+
+    total = 0
+    POUR CHAQUE prd DANS panier
+        total = total + prd.prix
+    FIN POUR CHAQUE
+
+    afficher total
+
+    encaissement = saisir "Avec combien d'argent souhaitez-vous payer ?"
+
+    TANT QUE encaissement < total
+         encaissement = saisir "Pas assez. Avec combien d'argent souhaitez-vous payer ?"
+    FIN TAN QUE
+
+    SI encaissement > total
+        afficher "Voici votre monnaie  : " CONCAT (encaissement - total)
+    FIN SI
+
+    afficher "Merci orvoir"
+Fin algo
