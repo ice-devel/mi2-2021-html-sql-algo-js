@@ -105,3 +105,20 @@ Debut algo
 
     afficherPersonne(personne)
 Fin algo
+
+Joueur : id, nom, points, age
+Variables
+    Joueur : structure {
+        id: entier
+        nom: chaine
+        points: entier
+        age: entier
+    }
+
+    player: Joueur
+Debut algo
+    player.nom = "Bernard"
+    player.age = 20
+    afficher player.age
+Fin algo
+

@@ -1,0 +1,24 @@
+Ecrire l'algorithme qui:
+- Ajoute des produits respectant cette structure, dans un catalogue (variable type tableau)
+Produit : structure {
+    nom: chaine,
+    prix: entier
+}
+catalogue: tableau de Produit
+
+- Il faut 4 produits : vélo à 200€, cadre à 5€, chaise à 20€, un pull à 35€
+- Afficher ces produits à l'écran (nom + prix) en les préfixant par leur indice dans le tableau
+
+- Donner la main à l'utilisateur pour lui demander quel produit il veut acheter :
+il choisit un produit grâce à son indice.
+On lui redonne la main pour qu'il choisissent d'autres produits (gestion de panier),
+et on passe à la suite quand il saisit -1.
+
+- Quand il a fini il faut afficher le prix total
+
+- Lui redonner la main pour qu'il dise avec combien d'argent il veut payer
+
+- S'il ne donne pas assez d'argent, on recommence l'étape précédente
+
+- S'il donne pile poil l'argent demandé ou plus, on lui dit merci et on lui rend la monnaie
+si nécessaire
