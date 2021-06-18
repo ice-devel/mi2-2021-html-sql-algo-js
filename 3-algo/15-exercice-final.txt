@@ -44,6 +44,7 @@ Variables
         nom: chaine,
         prix: entier
     }
+
     catalogue: tableau
     produit1: Produit
     produit2: Produit
@@ -56,18 +57,15 @@ Variables
     total: entier
     encaissement: entier
 Debut algo
-    produit1.nom = "Vélo"
-    produit1.prix = 200
-    ajouter produit1 dans catalogue
+    // ajout d'un produit via la fonction
+    prd = ajoutProduitPanier("Vélo", 200)
+    ajouter prd dans catalogue
 
-    produit2.nom = "Cadre"
-    produit2.prix = 5
-    ajouter produit2 dans catalogue
+    // en une seule ligne
+    ajouter creerProduit("Cadre", 5) dans catalogue
+    ajouter creerProduit("Chaise", 20) dans catalogue
 
-    produit3.nom = "Chaise"
-    produit3.prix = 20
-    ajouter produit3 dans catalogue
-
+    // sans la fonction
     produit4.nom = "Pull"
     produit4.prix = 35
     ajouter produit4 dans catalogue
@@ -101,3 +99,12 @@ Debut algo
 
     afficher "Merci orvoir"
 Fin algo
+
+Variables
+    produit: Produit
+Debut fonction creerProduit(nom:chaine, prix:entier)
+    produit.nom = nom
+    produit.prix = prix
+
+    retourner produit
+Fin fonction

@@ -1,0 +1,30 @@
+Variables
+    Player: structure {
+        id: entier
+        nom: chaine
+        points: entier
+        zipcode: chaine
+        birthday: date
+    }
+
+    players: tableau
+    player: Player
+Debut algo
+    // Connexion à la base de données
+    Connexion_SERVEUR_BDD("localhost", "root", "pass1234")
+    Choix_BDD("formation_m2i")
+    players = Requete_SQL("SELECT * FROM player ORDER BY points DESC")
+
+
+    // affichager des joueurs dans la page
+    POUR i de 0 à LONGUEUR(players)-1 par pas de 1
+        afficher "<p>" CONCAT players[i].nom CONCAT "</p>"
+    FIN POUR
+
+    POUR CHAQUE player DANS players
+        afficher "<p>"
+                        CONCAT player.nom
+                        CONCAT player.zipcode
+                "</p>"
+    FIN POUR
+Fin algo
