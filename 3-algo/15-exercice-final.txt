@@ -4,9 +4,18 @@ Produit : structure {
     nom: chaine,
     prix: entier
 }
+produit: Produit
 catalogue: tableau de Produit
+debut algo
+    produit.nom = "Vélo"
+    produit.prix = "200"
+    ajouter produit dans catalogue
 
-- Il faut 4 produits : vélo à 200€, cadre à 5€, chaise à 20€, un pull à 35€
+    ajouter produit dans panier
+    panier[0].prix
+fin algo
+
+- Il faut ajouter 4 produits dans le catalogue : vélo à 200€, cadre à 5€, chaise à 20€, un pull à 35€
 - Afficher ces produits à l'écran (nom + prix) en les préfixant par leur indice dans le tableau
 
 - Donner la main à l'utilisateur pour lui demander quel produit il veut acheter :
@@ -22,3 +31,5 @@ et on passe à la suite quand il saisit -1.
 
 - S'il donne pile poil l'argent demandé ou plus, on lui dit merci et on lui rend la monnaie
 si nécessaire
+
+- Vous pouvez créer une fonction et l'utiliser si vous voulez

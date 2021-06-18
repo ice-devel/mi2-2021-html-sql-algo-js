@@ -106,7 +106,6 @@ Debut algo
     afficherPersonne(personne)
 Fin algo
 
-Joueur : id, nom, points, age
 Variables
     Joueur : structure {
         id: entier
