@@ -1,0 +1,107 @@
+Les STRUCTURES
+Les structures sont des types de variables que le développeur va définir lui-même.
+
+Elles permettent de regrouper des données se référant au même concept dans une seule variable.
+Cela aura pour effet d'améliorer la lisibilité du code et sa maintenance/évolutivité.
+
+Avec ce type de variables, on commence à se rapprocher
+d'une développement orienté objet.
+
+- Sans structure
+Variables
+Debut algo
+    nom = "Bidule"
+    email = "bidule@gmail.com"
+    age = 25
+    zipcode = "59000"
+
+    nom2 = "Jean-jacques"
+    email2 = "jj@mail.fr"
+    age2 = 52
+    zipcode2 = "62000"
+
+    afficher nom CONCAT email
+    estMajeur(age2)
+Fin algo
+
+Avec structure
+
+Variables
+    Personne : structure {
+        nom: chaine
+        email: chaine
+        age: entier
+        zipcode: chaine
+        points: entier
+    }
+
+    personne1: Personne
+    jeanjacques: Personne
+Debut algo
+    bidule.nom = "Bidule"
+    bidule.email = "bidule@gmail.com"
+    bidule.age = 25
+    bidule.zipcode = "59000"
+
+    jeanjacques.nom = "Jean-jacques"
+    jeanjacques.email = "jj@mail.fr"
+    jeanjacques.age = 52
+    jeanjacques.zipcode = "62000"
+
+    afficher bidule.nom CONCAT bidule.email
+    majeur = estMajeur(jeanjacques.age)
+Fin algo
+
+- sans structure
+Variable
+Debut fonction afficherPersonne(nom:chaine, email: chaine, age:entier)
+    afficher nom CONCAT email CONCAT age
+Fin fonction
+
+Debut algo
+    nom = "Bidule"
+    email = ""
+    age = 25
+
+    afficherPersonne(nom, email, age)
+Fin algo
+
+- avec structure
+Variable
+Debut fonction afficherPersonne(quelquun: Personne)
+    afficher quelquun.nom CONCAT quelquun.email CONCAT quelquun.age
+Fin fonction
+
+Variables
+   Personne : structure {
+        nom: chaine
+        email: chaine
+        age: entier
+        zipcode: chaine
+        points: entier
+    }
+Debut algo
+    bidule.nom = "Bidule"
+    bidule.email = "bidule@gmail.com"
+    bidule.age = 25
+    bidule.zipcode = "59000"
+
+    afficherPersonne(bidule)
+Fin algo
+
+Variables
+   Personne : structure {
+        nom: chaine
+        email: chaine
+        age: entier
+        zipcode: chaine
+        points: entier
+    }
+    personne: Personne
+Debut algo
+    personne.nom = saisir "Quel est ton nom"
+    personne.age = saisir "Quel est ton age"
+    personne.email = saisir "Quel est ton email"
+
+    afficherPersonne(personne)
+Fin algo
