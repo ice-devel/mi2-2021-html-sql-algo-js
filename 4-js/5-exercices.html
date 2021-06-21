@@ -10,7 +10,7 @@
 <body>
     <h1>Exercices</h1>
     <ul>
-        <li>1 - Demander l'âge au user, et indiquer lui le prix de son billet
+        <li>1 - Demandez l'âge au user, et indiquez-lui le prix de son billet
             <ul>
                 <li>Gratuit en dessous de 12</li>
                 <li>15€ si 12-25ans</li>
@@ -24,7 +24,75 @@
         </li>
     </ul>
     <script>
+            // Exo 1
+            var age = prompt("Votre age ?");
 
+            // V1
+            /*
+            if (age < 12) {
+                document.write("Billet gratuit")
+            }
+            else if (age >= 12 && age <= 25) {
+                document.write("15€")
+            }
+            else if (age >= 26 && age <= 59) {
+                document.write("20€")
+            }
+            else if (age >= 60) {
+                document.write("17€")
+            }
+            */
+
+            // V2
+            /*
+            if (age < 12) {
+                document.write("Billet gratuit")
+            }
+            else if (age >= 12 && age <= 25) {
+                document.write("15€")
+            }
+            else if (age >= 26 && age <= 59) {
+                document.write("20€")
+            }
+            else {
+                document.write("17€")
+            }
+            */
+
+            if (age < 12) {
+                document.write("<p>Billet gratuit</p>");
+            }
+            else if (age <= 25) {
+                document.write("<p>15€</p>");
+            }
+            else if (age <= 59) {
+                document.write("<p>20€</p>");
+            }
+            else {
+                document.write("<p>17€</p>");
+            }
+
+            /*
+            Exo 2 :
+             */
+            var somme = 0;
+            var nbNotes = 0;
+            var note = prompt("Saisir une note (-1 pour stop)");
+            while (note != -1) {
+                //somme = somme + parseInt(note);
+                somme += parseInt(note);
+                nbNotes++;
+                note = prompt("OK. Saisir une autre note (-1 pour stop)");
+            }
+
+            var moyenne = somme / nbNotes;
+            document.write(moyenne);
+
+            // arrondir à l'entier le plus proche
+            // moyenne = Math.round(moyenne);
+
+
+            document.write("<p>" + moyenne.toFixed(2) + "</p>")
     </script>
 </body>
 </html>
