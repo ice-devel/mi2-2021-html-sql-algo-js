@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Les variables</h1>
+
+    <p>
+        Javascript est faiblement typé : on ne type pas les
+        variables explicitement, mais ces variables ont bien un type
+        en mémoire une fois qu'on leur a donné une valeur.
+    </p>
+
+    <p>
+        Types primitifs
+    </p>
+    <ul>
+        <li>Chaine de caractères (string)</li>
+        <li>Nombre (number) : entier + nombre à virgule flottante</li>
+        <li>Booléen (boolean)</li>
+    </ul>
+
+    <script>
+        // déclarer une variable
+        var somme;
+        console.log(somme);
+
+        // initialiser une variable
+        somme = 15;
+        console.log(somme);
+        console.log(typeof somme);
+
+        // déclarer et initialiser en même temps
+        var nom = "Michel";
+        console.log(nom);
+        console.log(typeof nom);
+
+        var isMajeur = true;
+        console.log(isMajeur);
+        console.log(typeof isMajeur);
+
+        // variable constante : ne peux pas changer de valeur pendant
+        // l'exécution
+        const TVA = 0.2;
+        console.log(TVA);
+        console.log(typeof TVA);
+
+        TVA = 0.21; // à partir de cette ligne le code plante
+        // car on ne peux pas changer la valeur d'une constante
+
+        console.log("on vient jamais ici");
+
+    </script>
+</body>
+</html>

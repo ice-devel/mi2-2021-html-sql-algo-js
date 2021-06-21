@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Les instructions JS</h1>
+
+    <script>
+        // instructions
+        // opérations arithmétiques
+        var somme = 23 + 2;
+        var difference = 23 - 4;
+        var produit = 34 * 2;
+        var quotient = 20 / 3;
+        var operation = 4 / (3 + 4) - 12 * 2;
+
+        var somme2 = difference * quotient;
+
+        // raccourci opération arithmétique
+        // modifier la valeur d'une variable en réutilisant sa valeur actuelle
+        somme = somme + 15;
+        // écriture simplifiée :
+        somme += 15;
+
+        somme -= 5;
+        somme *= 3;
+        somme /= 2;
+
+        // écriture simplifiée pour incrémentation / décrémentation
+        var i = 0;
+        i = i + 1;
+        i += 1;
+        i++;
+
+        var i = 0;
+        i = i - 1;
+        i -= 1;
+        i--;
+
+        // concaténation
+        var mot1 = "Bonjour";
+        var mot2 = "Bidule";
+        var phrase = mot1 + " " + mot2;
+        console.log(phrase);
+
+        // le symbople + est utilisé pour l'addtion et la concaténation
+        // si l'une des deux parties de l'opération est une chaine
+        // alors l'opérateur + réalisera une concaténation
+        var test = "50" + 2;
+        console.log(test); // "502" et non 52
+
+        var test2 = 50 + "3";
+        console.log(test2); // "503"
+
+        // donner la main à l'utilisateur
+        var nom = prompt("Quel est votre nom ?");
+        console.log(nom);
+        console.log(typeof nom);
+
+        var age = prompt("Quel est votre age ?");
+        console.log(age);
+        console.log(typeof age);
+        console.log("concat age")
+        console.log(age + age);
+
+        // si on veut récupérer un number, il faut forcer le type : cast
+        // transformer une chaine en entier : parseInt
+        age = parseInt(age);
+        console.log(typeof age);
+        console.log(age + age);
+
+        var annee = 1950;
+
+        // transformer un number en string
+        // String() ou .toString()
+        annee = String(annee);
+        annee = annee.toString();
+
+        console.log(typeof annee);
+
+
+    </script>
+</body>
+</html>
