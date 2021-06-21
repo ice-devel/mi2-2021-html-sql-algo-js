@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Les conditions et les boucles en JS</h1>
+
+    <script>
+        // écrire qqch dans la page web en dernière position du body
+        document.write("<p>Hello</p>");
+
+        /*
+            Commentaire de bloc
+            Structure conditionnelle :
+            Le si...sinon si...sinon
+         */
+
+        // le SI : exécuter des instructions uniquement si la condition est vraie
+        if (1 == 1) {
+            document.write("1 est bien égal 1");
+        }
+
+        var age = prompt("Quel est votre âge ?");
+
+        if (age >= 18) {
+            document.write("<p>Vous êtes majeur</p>");
+        }
+        else if (age == 17) {
+            document.write("<p>Vous êtes presque majeur</p>");
+        }
+        else {
+            document.write("<p>Vous êtes mineur</p>");
+        }
+
+        // le SELON
+        var boisson = prompt('Tu veux boire quoi ?');
+
+        switch (boisson) {
+            case "café":
+                document.write("<p>Et un café pour Monsieur</p>");
+                // obligé de mettre break à la fin d'un case
+                // sinon il rentre dans tous les "case" à partir du premier "case" correspondant
+                break;
+            case "thé":
+                document.write("<p>Yes my lord, here's your tea</p>");
+                break;
+            default:
+                document.write("<p>Déso gros, on n'a pas.</p>");
+        }
+
+        /*
+        le switch équivant à écrire ceci avec des IF
+        if (boisson == "café") {
+            document.write("<p>Et un café pour Monsieur</p>");
+        }
+        else if (boisson == "thé") {
+            document.write("<p>Yes my lord, here's your tea</p>");
+        }
+        else {
+            document.write("<p>Déso gros, on n'a pas.</p>");
+        }
+         */
+
+        // cumuler des conditions
+        // ET : &&
+        // OU : ||
+        if (boisson == "biere" && age < 18 || boisson == "café" && age < 10) {
+            document.write("<p>T'es trop jeune pour la boisson choisie</p>");
+        }
+
+        /*
+            Les boucles : pour / tant que / jusqu'à
+            in english : for / while / do while
+         */
+        // boucle pour : quand on connait exactement le nombre d'itération
+        // for : initialisation, condition d'arret, incrémentation
+
+        var i;
+        for (i = 0; i < 5; i++) {
+            document.write("<p>" + i + " - Je dois pas tricher</p>");
+        }
+
+        // la même chose mais avec un indice qui décrémente
+        for (i = 5; i > 0; i--) {
+            document.write("<p>" + i + " - Je dois pas tricher</p>");
+        }
+
+        // tant que
+        var number = prompt("Choisissez un chiffre entre 1 et 9");
+        while (number < 1 || number > 9) {
+            number = prompt("J'ai dit entre 1 et 9.");
+        }
+
+        // jusqu'à
+        var number;
+        do {
+            number = prompt("Choisissez un chiffre entre 1 et 9");
+        } while (number < 1 || number > 9);
+
+
+
+
+
+    </script>
+</body>
+</html>
