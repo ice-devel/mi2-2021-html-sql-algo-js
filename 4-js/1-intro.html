@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Présentation Javascript</h1>
+    <p>
+        Le javascript est un langage de programmation : il permet de coder
+        des algorithmes<br>
+        Il peut être exécuter dans un navigateur : il va permettre de dynamiser
+        cette page. Le contenu va pouvoir évoluer après le chargement de la page.
+    </p>
+
+    <p>
+        Il est exécuté côté client : le code peut être exécuter sans serveur
+        (échange client / serveur).
+        <img src="https://delmas-rigoutsos.nom.fr/documents/YDelmas-ArchiWeb/client-serveur-web.png" />
+    </p>
+
+    <p>Pour écrire du javascript :</p>
+    <ul>
+        <li>On l'écrit directement dans une balise script</li>
+        <li>On l'écrit dans un fichier .js à part, et on inclut ce fichier dans la page</li>
+    </ul>
+
+    <p style="width:200px;border:1px solid;text-align: justify">
+        On place en général le javascript en bas du code, parce qu'il est bloquant.
+        On affiche le HTML/CSS avant de commencer à exécuter du code JS.
+        On place le JS juste avant la fermeture de la balise body.
+    </p>
+
+    <script>
+        // ici on est en javascript, et ceci est un commentaire
+
+        // une instruction javascript
+        alert("Hello World!");
+
+        // une instruction pour afficher quelque-chose dans la console
+        console.log("Hello world in console!");
+    </script>
+</body>
+</html>
