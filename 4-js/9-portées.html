@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9 - les portées de variable</title>
+</head>
+<body>
+    <h1>9 - les portées de variable</h1>
+
+    <p>
+        Les variables ont une portée : c'est l'espace de code où elles peuvent être
+        utilisées.
+
+        Deux types de portées : locale / globale.
+
+        Une variable globale peut-être utilisée n'importe où dans le code.
+    </p>
+
+    <p>
+        Autre portée en JS : portée de bloc avec le mot-clé LET
+        Un bloc : function, for, if
+    </p>
+
+    <script>
+        var x; // variable globale car déclarée dans le script principal
+        var y;
+
+        x = 5;
+        y = 10;
+        z = 15; // variable globale, même on a pas fait la déclaration explicitement
+
+        document.write("<br>valeur de x dans script : " + x);
+        document.write("<br>valeur de y dans script : " + y);
+        document.write("<br>valeur de z dans script : " + z);
+
+        function testPortee() {
+            var a; // variable locale : utilisation uniquement dans cette fonction
+            a = 25;
+
+            document.write("<br>valeur de a dans testPortee : " + a);
+            document.write("<br>valeur de x dans testPortee : " + x);
+            x = 6; // ici on modifie la variable globale
+        }
+
+        testPortee();
+        document.write("<br>2- valeur de x dans script : " + x);
+
+        function testPortee2() {
+           document.write("<br>valeur de a dans testPortee2 : a n'existe pas dans cette fonction");
+           document.write("<br>valeur de x dans testPortee2 : " + x);
+        }
+
+        testPortee2();
+
+        function testPortee3() {
+            var x = 456; // variable locale : on a redéfini x. Dans cette fonction, x a une portée locale
+            // donc on ne modifie la variable globale x définie dans le script à la l23
+            document.write("<br>valeur de x dans testPortee3 : " + x);
+        }
+
+        testPortee3();
+        document.write("<br>3- valeur de x dans script : " + x);
+
+        function testPortee4() {
+            // dans le bloc fonction, var ou let c'est pareil
+            var x = 100; // variable locale
+            let y = 200; // variable locale / portée bloc
+            var z = 300; // variable locale
+
+            if (true) {
+                var x = 101; // variable locale de la fonction : le même que ligne 64
+                let y = 201; // variable portée bloc : redéfini pour ce bloc IF
+                let z = 301; // variable portée de bloc : n'existe que dans le If
+
+                if (true) {
+                    x = 102;
+                    y = 202;
+                    let z = 302; //
+                    document.write("<br>valeur de y dans testPortee4 IF2 : " + y);
+                    document.write("<br>valeur de z dans testPortee4 IF2 : " + z);
+                }
+
+                document.write("<br>valeur de x dans testPortee4 IF : " + x);
+                document.write("<br>valeur de y dans testPortee4 IF : " + y);
+                document.write("<br>valeur de z dans testPortee4 IF : " + z);
+            }
+
+            document.write("<br>valeur de x dans testPortee4 : " + x);
+            document.write("<br>valeur de y dans testPortee4 : " + y);
+            document.write("<br>valeur de z dans testPortee4 : " + z);
+        }
+
+        testPortee4();
+
+        for (let i = 0; i < 5; i++) {
+            console.log("test" + i);
+        }
+        // i n'existe pas après ce for
+
+        for (var i = 0; i < 5; i++) {
+            console.log("test" + i);
+        }
+        // i vaut 5
+        console.log("valeur de i après le for : " + i);
+
+        for (i = 0; i < 5; i++) {
+            console.log("test" + i);
+        }
+        // i vaut 5
+
+    </script>
+</body>
+</html>
