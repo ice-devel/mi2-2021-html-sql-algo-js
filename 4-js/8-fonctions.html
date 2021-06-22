@@ -96,6 +96,16 @@
             return reversedTab;
         }
 
+        function reverseTabJoshua(tableau) {
+            var reversedTab = [];
+
+            for (var i = tableau.length-1; i >= 0; i--) {
+                reversedTab.push(tableau[i]);
+            }
+
+            return reversedTab;
+        }
+
         var element;
         var tab = [];
         while (element != -1) {
@@ -112,6 +122,16 @@
             document.write("<p>" + i + " - " + tab[i] + "</p>");
         }
 
+
+        // mettre une fonction dans une variable, pour avoir une référence à cette fonction
+
+       var myTestFunction = function(element) {
+            alert(element);
+        };
+        console.log(myTestFunction);
+        console.log(typeof myTestFunction);
+
+        tab.forEach(myTestFunction);
 
 
     </script>
