@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8- Les fonctions</title>
+</head>
+<body>
+    <h1>Les fonctions</h1>
+    <p>
+        Une fonction est une suite d'instructions à laquelle on donne un nom, afin de pouvoir l'exécuter
+        à différents endroits du code sans avoir à réécrire ces instructions.
+        Une fonction peut avoir des paramètres d'entrée, et une valeur de retour
+    </p>
+    <script>
+        function add(nb1, nb2) {
+            var sum = nb1 + nb2;
+            return sum; // retourner une valeur pour pouvoir l'utiliser là où on appelle la fonction
+        }
+
+        add(10, 14); // valeur de retour non utilisée
+
+        document.write(add(33, 1));
+        var result = add(33, 1);
+        if (result > 30) {
+
+        }
+
+        function reverseWord(word) {
+            var reversedWord = ""; // variable portée locale : n'existe que dans la fonction
+            for (var i = 0; i < word.length; i++) {
+                reversedWord = word[i] + reversedWord;
+            }
+
+            return reversedWord;
+        }
+
+        var word = "Et si l'arôme des bottes révèle madame, le verset t'obsède, moraliste";
+        var reversedWord = reverseWord(word);
+        document.write("<p>" + reversedWord + "</p>");
+
+        /**
+         * Exercices
+         * exo 1 : créer une fonction qui retourne si oui ou non un mot passé en paramètre
+         * est un palindrome. Utilisez la fonction dans le script principal
+         *
+         * exo 2 : créer une fonction qui prend un tableau en paramètre et qui retourne un nouveau
+         * tableau dont les éléments sont les mêmes que ceux qu tableau en paramètre mais dans l'ordre inverse.
+         * ["coucou", "test", "chou"]
+         * ["chou", "test", "coucou"]
+         */
+    </script>
+</body>
+</html>
