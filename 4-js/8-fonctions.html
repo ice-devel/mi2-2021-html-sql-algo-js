@@ -25,8 +25,8 @@
 
         }
 
-        function reverseWord(word) {
-            var reversedWord = ""; // variable portée locale : n'existe que dans la fonction
+        function reverseWord(word) {  // word : variable portée locale : n'existe que dans la fonction
+            var reversedWord = ""; // reversedWord : variable portée locale : n'existe que dans la fonction
             for (var i = 0; i < word.length; i++) {
                 reversedWord = word[i] + reversedWord;
             }
@@ -34,23 +34,86 @@
             return reversedWord;
         }
 
-        var word = "Et si l'arôme des bottes révèle madame, le verset t'obsède, moraliste";
-        var reversedWord = reverseWord(word);
+        var sentence = "Et si l'arôme des bottes révèle madame, le verset t'obsède, moraliste";
+        var reversedWord = reverseWord(sentence);
         document.write("<p>" + reversedWord + "</p>");
 
         /**
          * Exercices
          * exo 1 : écrire une fonction qui réalise une soustraction entre deux nombres passés en paramètre
-         * et retourne le résultat de cette soustraction
+         * et retourne le résultat de cette soustraction. Utilisez la fonction dans un script
          *
          * exo 2 : créer une fonction qui retourne si oui ou non un mot passé en paramètre
          * est un palindrome. Utilisez la fonction dans le script principal
          *
          * exo 3 : créer une fonction qui prend un tableau en paramètre et qui retourne un nouveau
-         * tableau dont les éléments sont les mêmes que ceux qu tableau en paramètre mais dans l'ordre inverse.
+         * tableau dont les éléments sont les mêmes que ceux du tableau en paramètre mais dans l'ordre inverse.
          * ["coucou", "test", "chou"]
          * ["chou", "test", "coucou"]
+         * Utilisez la fonction dans un script
          */
+
+        // exo 1
+        function moins(nombre1, nombre2) {
+            var difference = nombre1 - nombre2;
+            return difference;
+        }
+
+        var chiffre1 = 18;
+        var chiffre2 = 10;
+        var resultat = moins(chiffre1, chiffre2);
+
+        // exo 2
+        function isPalin(word) {
+            var i = 0;
+            var palindrome = true;
+            while (palindrome && i <= Math.floor(word.length / 2)) {
+                if (word[i] != word[word.length-1-i]) {
+                    palindrome = false;
+                }
+                i++;
+            }
+
+            return palindrome;
+        }
+
+        var mot = "kayak";
+        var result = isPalin(mot);
+        console.log(result);
+
+        var userWord = prompt("Saisir un mot pour savoir c'est un palin");
+        var result2 = isPalin(userWord);
+        console.log(result2);
+
+        // exo 3
+        function reverseTab(tab) {
+            var reversedTab = [];
+
+            for (var i = 0; i < tab.length; i++) {
+                reversedTab[i] = tab[tab.length-1-i];
+            }
+
+            return reversedTab;
+        }
+
+        var element;
+        var tab = [];
+        while (element != -1) {
+            element = prompt("Entrez les éléments (-1 pour stop)");
+            if (element != -1) {
+                tab.push(element);
+            }
+        }
+        console.log(tab);
+
+        tab = reverseTab(tab);
+        console.log(tab);
+        for (var i = 0; i < tab.length; i++) {
+            document.write("<p>" + i + " - " + tab[i] + "</p>");
+        }
+
+
+
     </script>
 </body>
 </html>
