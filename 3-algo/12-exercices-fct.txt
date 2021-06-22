@@ -272,7 +272,7 @@ Debut fonction isPalindrome(mot: chaine)
 
     i = 0
     palindrome = vrai
-    TANT QUE palindrome == vrai ET ARRONDIR_INFERIEUR(LONGUEUR(mot) / 2)
+    TANT QUE palindrome == vrai ET i <= ARRONDIR_INFERIEUR(LONGUEUR(mot) / 2)
         SI mot[i] != mot[LONGUEUR(mot)-1-i]
             palindrome = faux
         FIN SI
