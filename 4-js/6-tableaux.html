@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6 - Tableaux</title>
+</head>
+<body>
+    <h1>Tableaux JS</h1>
+
+    <p>
+        Les tableaux sont des variables qui peut contenir plusieurs
+        valeurs. Chacune de ces valeurs est accessible grâce à un indice
+        (qui commence à 0).
+
+        On peut accéder ou modifier un élément d'un tableau,
+        grâce à son indice, ou encore on peut afficher toutes les valeurs
+        d'un tableau en le parcourant (grâce à une boucle).
+    </p>
+    <script>
+        // déclarer un tableau en JS et le typer : obligatoire
+        // var cities = new Array();
+        var cities = [];
+        console.log(cities);
+        console.log(typeof cities);
+
+        /*
+         ajouter un élément dans un tableau (en dernière position : push)
+         */
+        cities.push("Lille");
+        cities.push("Paris");
+        cities.push("Bordeaux");
+        cities.push("Lyon");
+        // à partir d'ici le tableau comporte 4 éléments
+        console.log(cities);
+
+        // pour récupérer le nombre dans le tableau : array.length
+        console.log(cities.length);
+
+        /*
+         * Accéder à un élément
+         */
+        document.write(cities[1]);
+
+        /*
+         * Modifier un élément
+         */
+        cities[1] = "Paris 2"
+        console.log(cities);
+
+        /*
+         * Parcourir le tableau
+         */
+        //for (var i = 0; i <= cities.length - 1; i++) {
+        for (var i = 0; i < cities.length; i++) {
+            document.write("<p>" + cities[i] + "</p>");
+        }
+
+        // avec un while : moins adapté
+        i = 0
+        while (i < cities.length) {
+            document.write("<p>" + cities[i] + "</p>");
+            i++;
+        }
+
+        /*
+         * Les POUR CHAQUE (foreach) en JS
+         */
+        cities.forEach(function(element) {
+            document.write("<p>" + element + "</p>");
+        });
+
+        // ou encore :
+        for (const element of cities) {
+            document.write("<p>" + element + "</p>");
+        }
+
+        // déclaration + initialisation
+        var notes = [10, 15, 13];
+        notes.push(14);
+        notes.push(19);
+
+        var somme = 0;
+        notes.forEach(function(note) {
+            // somme = somme + note;
+            somme += note;
+        });
+
+        var moyenne = somme / notes.length;
+        console.log("Moyenne = " + moyenne);
+
+        // dans un langage typé, les éléments d'un tableau
+        // n'ont pas forcément le même type
+        var toutetnimp = [];
+        toutetnimp.push(13);
+        toutetnimp.push("Coucou");
+        toutetnimp.push(true);
+        toutetnimp.push("La république C'EST MOI");
+        toutetnimp.push(cities);
+
+        console.log(toutetnimp);
+        var lille = toutetnimp[4][0];
+    </script>
+</body>
+</html>
