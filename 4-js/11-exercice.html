@@ -7,22 +7,120 @@
 <body>
     <h1>Exercice DOM</h1>
 
-    <input type="text" value=""/>
+    <input id="input-note" type="text"/>
+    <button id="btn-save">Enregistrer</button>
+    <button id="btn-display">Afficher</button>
 
+    <p id="result">
+
+    </p>
+
+    <script>
+        let notes = [];
+        // récupérer le bouton
+        let btnSave = document.querySelector("#btn-save");
+        // dire au bouton d'écouter le click et lancer une fonction
+        // quand ça se produit
+        btnSave.addEventListener("click", function() {
+            // récupérer le champ
+            let inputNote = document.querySelector("#input-note");
+            // récupérer la valeur saisie dans le champ
+            let note = inputNote.value;
+            // forcer le type de la variable
+            // pour ne pas se trimballer des chaines de caractères
+            note = parseInt(note);
+            // vérifier si la valeur est ok
+            if (note >= 0 && note <= 20) {
+                // enregistrer la note dans le tableau
+                notes.push(note);
+                // vider le champ
+                inputNote.value = "";
+            }
+            else {
+                alert('0 et 20 noob');
+            }
+        });
+
+        function displayAverage() {
+            /*
+            let sum = 0;
+            let max = notes[0];
+
+            for (const note of notes) {
+                sum += note;
+
+                if (note > max) {
+                    max = note;
+                }
+            }
+
+            let moyenne = sum / notes.length;
+            */
+            let avg = getAverage(notes);
+            let max = getMax(notes);
+
+
+            let pResult = document.querySelector("#result");
+
+            // changer le texte d'un élément html (n'interprete pas les balises)
+            //pResult.textContent = "<b>" + moyenne + "</b>"
+
+            // changer le contenu HTML d'un élément (interprète les balises)
+            pResult.innerHTML = "La moyenne est <b>" + avg + "</b>. La note max est " + max;
+        }
+
+        let btnDisplay = document.querySelector("#btn-display");
+        btnDisplay.addEventListener("click", displayAverage);
+
+        function getAverage(tab) {
+            let sum = 0;
+            for (const int of tab) {
+                sum += int;
+            }
+
+            return sum / tab.length;
+        }
+
+        function getMax(tab) {
+            let max = tab[0];
+            for (const elem of tab) {
+                if (elem > max) {
+                    max = elem;
+                }
+            }
+
+            return max;
+        }
+    </script>
     <p>
         HTML :
-        Créer une page web avec un champ texte ainsi que deux boutons :
+        Créer une page web avec un champ texte ainsi
+        que deux boutons :
          - un bouton enregister
          - un bouton afficher
 
         JS :
-        Quand l'utilisateur a rempli le champ texte et qu'il clique sur enregister,
-        il faut stocker la note dans un tableau JS. Si la note saisie n'est pas compris
+        Quand l'utilisateur a rempli le champ texte
+        et qu'il clique sur enregistrer,
+        il faut stocker la note dans un tableau JS.
+
+        Si la note saisie n'est pas compris
         entre 0 et 20, il faut lui indiquer une erreur.
 
-        Quand il clique sur le bouton afficher, la moyenne des notes doit s'afficher
-        ainsi que la note la plus élevé qu'il a saisie.
+        Quand il clique sur le bouton afficher,
+        la moyenne des notes doit s'afficher
+        ainsi que la note la plus élevée qu'il a saisie.
     </p>
+
+    <ul>
+        <li>Récupérer le bouton dans une variable</li>
+        <li>Ecouter le click et indiquer quelle fonction déclencher</li>
+        <li>Ecrire cette fonction :
+            - récupérer le champ texte dans une variable
+            - Récupérer la valeur du champ texte ( .value)
+            - stocker cette valeur dans un tableau
+        </li>
+    </ul>
 
     <script>
         // récupérer la valeur saisie dans un input :
