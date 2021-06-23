@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10 - manipulation du DOM</title>
+</head>
+<body>
+    <h1>Manipuler le DOM avec JS</h1>
+
+    <p>
+        DOM : document object manager
+    </p>
+
+    <h2 class="bold">Sélecteurs</h2>
+    <ul>
+        <li class="bold">Par ID</li>
+        <li class="italic">Par classe</li>
+        <li class="bold">Par tag</li>
+    </ul>
+
+    <button id="btn-click" style="" >Cliquez-moi</button>
+
+    <script>
+        /*
+         * Grâce au DOM, on peut en JS intéragir avec le HTML :
+         * 1 - Sélectionner un ou plusieurs éléments
+         * 2 - Intéragir avec ces éléments
+         */
+
+        /* ancienne sélection d'élément */
+        var elementById = document.getElementById("btn-click");
+        var elementsByClass = document.getElementsByClassName("bold");
+        var elementsByTag = document.getElementsByTagName("li");
+
+        /*
+            querySelector : sélectionner un seul élément / null si pas d'élément correspondant
+         */
+        var btnClick = document.querySelector("#btn-click");
+        console.log(btnClick);
+        console.log(typeof btnClick);
+
+        btnClick.style.color = "red";
+
+        /*
+            querySelectorAll : sélectionner plusieurs éléments
+            tableau rempli ou tableau vide si pas élément correspondant
+         */
+        var lis = document.querySelectorAll("li");
+        console.log(lis);
+
+        /*
+        text-decoration : underline
+        propriété avec un tiret ? suppression du tiret + camelCase
+         */
+        // lis.style.textDecoration = "underline";
+        // par
+        for (let i = 0; i < lis.length; i++) {
+            let currentElem = lis[i];
+            currentElem.style.textDecoration = "underline";
+            currentElem.style.color = "green";
+
+            // ou encore sans variable intermédiaire
+            lis[i].style.textDecoration = "underline";
+            lis[i].style.color = "green";
+        }
+
+        var boldedLis = document.querySelectorAll("li.bold");
+        for (const currentLi of boldedLis) {
+            currentLi.style.fontWeight = "bold";
+        }
+
+        /*
+         * Ecouter des événement
+         * I - sélectionner élément
+         * II - écouter un événement
+         * III - écrire la fonction qui se déclenche quand l'événément se produit
+         */
+        function clickOnBtnClick(elem) {
+            let titre = document.querySelector("h1");
+            titre.style.color = "red";
+
+            let lis = document.querySelectorAll("li");
+
+            // for : gestion de l'indice
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].style.fontStyle = "italic";
+            }
+
+            // la même avec for...of
+            for (const elem of lis) {
+                elem.style.fontStyle = "italic";
+            }
+        }
+
+        var btnClick = document.querySelector("#btn-click");
+        btnClick.addEventListener("click", clickOnBtnClick);
+
+
+    </script>
+</body>
+</html>
