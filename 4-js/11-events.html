@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11 - manipulation du DOM : les events</title>
+</head>
+<body>
+    <h1>Manipuler le DOM avec JS : les events</h1>
+
+    <p onclick="alert('coucou')">
+        Cliquez-moi
+    </p>
+
+    <p id="p2">
+        Coucou clique-ici aussi
+    </p>
+
+   <ul id="list">
+       <li>Puce 1</li>
+       <li>Puce 2</li>
+       <li>Puce 3</li>
+   </ul>
+
+    <form action="">
+        <input type="text" id="input-name" />
+        <button id="btn-sayhello">Dire bonjour</button>
+    </form>
+
+    <script>
+        /*
+        Ecouter un événement et déclencher une fonction
+        I - sélectionner l'élément avec querySelector
+        II - écouter un événement / donner le nom de la fonction à déclencher quand ça se produit
+        III - écrire cette fonction qui se déclenche lors de l'event
+         */
+
+        // DOM-0
+        var paragraph = document.querySelector("#p2");
+        paragraph.onclick = function() {
+            alert('Coucou à nouveau');
+        };
+
+        // si on redéfinit la propriété onclick, on écrase l'ancienne fonction
+        paragraph.onclick = function() {
+            alert('Coucou à nouveau le retour');
+        };
+
+
+        // DOM-2 : avec le addEventListener
+        var lis = document.querySelectorAll("li");
+        for (const li of lis) {
+
+            // avec le addEventListener on peut cumuler les callbacks sur le même évenement
+            li.addEventListener("mouseover", function() {
+                li.style.color = "red";
+            });
+
+            li.addEventListener("mouseover", changeLiUnderline);
+        }
+
+        function changeLiUnderline() {
+            // this fait référence à l'élément qui a déclenché l'evenement : celui qu'on survol
+            this.style.textDecoration = "underline";
+        }
+
+        /*
+        inutile d'écouter le click sur le bouton
+         */
+        /*
+        var btn = document.querySelector("#btn-sayhello");
+        btn.addEventListener("click", function() {
+            var inputName = document.querySelector("#input-name");
+            var text = inputName.value;
+            console.log("Bonjour " + text);
+        })
+        */
+
+        /*
+        écoutons plutot la soumission du formulaire (qui prend en compte le click sur le bouton, et
+        la touche entrée)
+         */
+        // écouter l'évenement "submit" pour l'annuler et ainsi éviter à la page de se recharger.
+        var form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            // annuler le comportement par défaut de l'évenement
+            // ici ça revient à empecher le formulaire de recharger la page
+            event.preventDefault();
+
+            // pour qu'on puisse faire notre propre code :
+
+            var inputName = document.querySelector("#input-name");
+            var text = inputName.value;
+            console.log("Bonjour " + text);
+        })
+    </script>
+</body>
+</html>
