@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13-création élément</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Evolutions</h1>
+
+    <ul>
+        <li>Inventeur Brendan Eich : Mocha</li>
+        <li>Première release avec Netscape Navigator 2.0 en tant LiveScript</li>
+        <li>Changement peu après pour Javascript</li>
+        <li>Apparition des ECMAScript (ES) : spécifications à implémenter
+            <ul>
+                <li>ES1</li>
+                <li>ES2</li>
+                <li>ES3 (1999)</li>
+                <li>ES4 (abandonné)</li>
+                <li>ES5 2009</li>
+                <li>ES6 2015</li>
+                <li>ES7 2016</li>
+                <li>ES8 2017</li>
+                <li>ES9 2018</li>
+                <li>ES10 2019</li>
+            </ul>
+        </li>
+
+    </ul>
+
+    <script>
+        // nouveautés ES5
+        "use strict";
+        // use strict impose une version restrictive de JS
+        // comme obligation de déclarer les variables
+
+        var tab = [];
+        Array.isArray(tab); // return true
+        Array.isArray("coucou"); // return false
+
+        // forEach
+        var cities = ['Bordeaux', "Paris", "Marseille"];
+        cities.forEach(function(element, i) {
+            // element est rempli avec chaque élément à tour de rôle
+            // i est l'indice de l'élément en cours
+        });
+
+        // map, filter, reduce, every, some, indexOf
+        var notes = [11, 14, 9, 14, 15];
+
+        // map : appliquer un traitement sur chacune des entrées
+        let notesPlus2 = notes.map(function(element) {
+            return element + 2;
+        });
+
+        // est que toutes les notes sont égales à 15 ?
+        let allNotesAre15 = notes.every(function(element) {
+            return element == 15;
+        });
+
+        // est ce que au moins une note est égale à 15
+        let oneNoteIs15 = notes.some(function(element) {
+            return element == 15;
+        });
+
+        // indexOf : trouver la position d'un élément (-1 si pas trouvé)
+        let position = notes.indexOf(15);
+
+        // ne garder que les notes > 15
+        let notesGt15 = notes.filter(function(element) {
+            return element >= 15;
+        });
+
+        // accumuler toutes les notes
+        let sumNotes = notes.reduce(function(accumulator, value) {
+            return accumulator + value;
+        });
+
+        // Support JSON
+
+        // now()
+        let currentDate = Date.now(); // ms écoulées depuis 01/01/1970
+
+        // ES6
+        // let & const
+        let chaine = "coucou";
+        const TVA = 20;
+
+        // for..of : un nouveau foreach
+        var notes = [11, 14, 9, 14, 15];
+        for (const note of notes) {
+            // note est setté avec chaque note à tour de rôle
+        }
+
+        // paramètre par défaut
+        function test(a, b=50) {
+            let result = a + b;
+            return result;
+        }
+
+        test(10); // b vaudra 50
+        test(10, 20);
+
+
+        // déstructuration
+        // fonction fléchées
+        // promesses
+        // classes
+    </script>
+</body>
+</html>
+
+

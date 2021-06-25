@@ -140,6 +140,13 @@
             // ajouter l'operation dans l'historique
             let history = document.querySelector("#history");
             history.innerHTML += operation + " = " + result + "<br>";
+
+            // ou encore avec une création d'élément :
+            /*
+            let p = document.createElement("p");
+            p.innerHTML = operation + " = " + result;
+            history.appendChild(p);
+            */
        }
     });
 

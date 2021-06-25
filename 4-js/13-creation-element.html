@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13-création élément</title>
+    <style>
+        .dynamic-div {
+            border: 1px solid orange;
+            padding: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Création d'élément en  JS</h1>
+
+    <div id="parent" class="container">
+    </div>
+
+    <button id="btn-div">Ajouter un div</button>
+    <button id="btn-img">Ajouter une image</button>
+
+    <script>
+        // récupérer le bouton ajouter un div
+        let btnDiv = document.querySelector("#btn-div");
+
+        // ajouter un div dynamiquement lorsque l'on clique sur le bouton "ajouter un div"
+        btnDiv.addEventListener("click", function() {
+            // création en mémoire d'un élément HTML div
+            let newDiv = document.createElement("div");
+
+            // mettre des valeurs pour les propriétés qui nous intéresse
+            // faisons le css plutôt qu'ici
+            //newDiv.style.border = "1px solid orange";
+            //newDiv.style.padding = "20px";
+
+            // on applique juste une classe sur l'élément, le css fera le reste
+            newDiv.classList.add("dynamic-div");
+            newDiv.innerHTML = "<b>Coucou en gras</b>";
+
+            // écouter des événements
+            newDiv.addEventListener("click", function() {
+               this.remove();
+            });
+
+            // insérer le nouvel élément dans la page : choisir le parent
+            let divParent = document.querySelector("#parent");
+            divParent.appendChild(newDiv);
+        });
+
+        // récupérer le bouton ajouter une image
+        let btnImage = document.querySelector("#btn-img");
+
+        // ajouter un image dynamiquement lorsque l'on clique sur le bouton "ajouter un image"
+        btnImage.addEventListener("click", function() {
+            // création en mémoire d'un élément HTML img
+           let newImage = document.createElement("img");
+
+            // mettre des valeurs pour les propriétés qui nous intéresse
+            newImage.src = "tp/3.jpg";
+            newImage.alt = "c'est un trois";
+
+            // écouter des événements
+            newImage.addEventListener("click", function() {
+                this.remove();
+            });
+
+            // insérer l'image dans la page
+            let divParent = document.querySelector("#parent");
+            divParent.appendChild(newImage);
+        });
+
+        function addDynamicP() {
+            // création en mémoire d'un élément HTML p
+            let newP = document.createElement("p");
+            newP.textContent = "Texte du paragraphe dynamique";
+            document.body.appendChild(newP);
+        }
+
+        // déclencher une fonction après un certain temps en ms
+        setTimeout(addDynamicP, 5000);
+
+        // appeler la fonction de suite
+        addDynamicP();
+
+        // supprimer un élément
+        /*
+            - sélectionner l'élément
+            - supprimer l'élément
+         */
+    </script>
+</body>
+</html>
+
+
