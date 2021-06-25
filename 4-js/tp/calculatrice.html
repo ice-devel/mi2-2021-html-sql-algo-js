@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculatrice</title>
+    <style>
+        #container {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #container_number, #container_operator {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .btn {
+            height: 100px;
+            border: 1px solid;
+            margin: 5px;
+            text-align: center;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        #container_number .btn {
+            flex: 1 1 80px;
+        }
+
+        #container_operator .btn {
+            flex: 1 1 50px;
+        }
+
+        #current-operation {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container">
+    Zone calcul en cours :
+    <div id="current-operation">
+
+    </div>
+    <div id="container_number">
+        <div class="btn" id="btn0" data-value="0">0</div>
+        <div class="btn" id="btn1" data-value="1">1</div>
+        <div class="btn" data-value="2">2</div>
+        <div class="btn" data-value="3"><img src="3.jpg" alt="" width="70px" /></div>
+        <div class="btn" data-value="4">4</div>
+        <div class="btn" data-value="5">5</div>
+        <div class="btn" data-value="6">6</div>
+        <div class="btn" data-value="7">7</div>
+        <div class="btn" data-value="8">8</div>
+        <div class="btn" data-value="9">9</div>
+    </div>
+
+    <div id="container_operator">
+        <div class="btn" id="btnplus" data-value="+">+</div>
+        <div class="btn" data-value="-">-</div>
+        <div class="btn" data-value="*">*</div>
+        <div class="btn" data-value="/">/</div>
+    </div>
+
+    <div id="history">
+
+    </div>
+</div>
+
+<script>
+    /*
+    let btn0 = document.querySelector("#btn0");
+    btn0.addEventListener("click", function() {
+        let currentOperation = document.querySelector("#current-operation");
+        // currentOperation.innerHTML = currentOperation.innerHTML + "0";
+        // en simplifié :
+        currentOperation.innerHTML += "0";
+    });
+
+    let btn1 = document.querySelector("#btn1");
+    btn1.addEventListener("click", function() {
+        let currentOperation = document.querySelector("#current-operation");
+        currentOperation.innerHTML += "1";
+    });
+
+    let btnplus = document.querySelector("#btnplus");
+    btnplus.addEventListener("click", function() {
+        let currentOperation = document.querySelector("#current-operation");
+        currentOperation.innerHTML += "+";
+    });
+    */
+
+    function clickOnButton() {
+        let currentOperation = document.querySelector("#current-operation");
+        // utilisez plutôt les data-attributes
+        // quand on a besoin de donner une valeur à un élément HTML
+        // let value = this.textContent;
+
+        // dataset permet de récupérer les attributes qui commence par "data-"
+        let value = this.dataset.value;
+        currentOperation.innerHTML += value;
+    }
+
+
+    /*
+    plutot que de récuper les boutons 1 par 1
+     */
+    /*
+    let btn1 = document.querySelector("#btn1");
+    btn1.addEventListener("click", clickOnButton);
+
+    let btnplus = document.querySelector("#btnplus");
+    btnplus.addEventListener("click", clickOnButton);
+    */
+
+    /*
+    on les récupère tous grâce à un sélecteur commun
+     */
+    let btns = document.querySelectorAll(".btn");
+    for (let btn of btns) {
+        btn.addEventListener("click", clickOnButton);
+    }
+
+    // lancer le calcul quand l'utilisateur appuie sur entrée :
+    let body = document.body;
+    body.addEventListener("keypress", function(event) {
+       let key = event.key;
+       // l'evenement keypress est déclenché pour toutes les touches
+        // donc il faut s'assurer que c'est enter la touche qu'on a pressée
+       if (key == "Enter") {
+            // lancer le calcul
+            let currentOperation = document.querySelector("#current-operation");
+            let operation = currentOperation.innerHTML;
+            let result = eval(operation);
+
+            // remplacer la zone calcul en cours par le resultat
+            currentOperation.innerHTML = result;
+
+            // ajouter l'operation dans l'historique
+            let history = document.querySelector("#history");
+            history.innerHTML += operation + " = " + result + "<br>";
+       }
+    });
+
+
+</script>
+
+</body>
+
+</html>

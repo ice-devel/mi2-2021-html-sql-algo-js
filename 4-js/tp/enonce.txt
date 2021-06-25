@@ -1,0 +1,19 @@
+Codez dans une page web une calculatrice simple en utilisant le template html fourni. Le template contient une grille de 9 chiffres et 4 opérateurs.
+
+
+Vous devez ajouter en html deux éléments manquants :
+
+une zone pour afficher le calcul en cours
+une zone qui affichera l'historique des calculs faits depuis le chargement de la page
+Vous utilisez le HTML et le style que vous voulez pour ces éléments.
+
+
+Puis en javascript :
+
+demander le nom de l’utilisateur. Lui dire bonjour en inversant les lettres de son prénom. Ouais.
+détecter le clic sur chaque case de la grille, et trouver un moyen (celui que vous voulez) pour récupérer la valeur de ces cases (1, 2, ..., 9, les opérateurs + - / *, bref la case sur laquelle  on a cliqué)
+il faut afficher, dans la zone "calcul en cours", les chiffres et les opérateurs sur lesquels vous cliquez de façon à afficher le calcul arithmétique
+Ensuite lorsque l'utilisateur appuie sur la touche "entrée" de la page, il faut exécuter en javascript ce calcul. Puis :
+Remplacer l'affichage du calcul dans la zone "calcul en cours" par le résultat de l"opération
+On peut alors refaire un nouveau calcul,  avec ce résultat comme nombre de départ déjà affiché dans la zone "calcul en cours"
+Ajoutez également l'opération qui vient d’être effectuée dans la zone "historique des calculs". C'est-à-dire que si l'opération qui vient d'être réalisée c'est 5 + 5, vous devez afficher dans cette zone : "5 + 5 = 10". On a donc dans cette zone tous les calculs réalisés depuis le chargement de la page, les uns en dessous des autres.
