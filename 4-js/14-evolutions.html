@@ -32,7 +32,7 @@
 
     <script>
         // nouveautés ES5
-        "use strict";
+        // "use strict";
         // use strict impose une version restrictive de JS
         // comme obligation de déclarer les variables
 
@@ -103,11 +103,67 @@
         test(10); // b vaudra 50
         test(10, 20);
 
-        // ajax
         // déstructuration
+        cities = ["Lille", "Bordeaux", "Lyon"];
+        let [x, y, z] = cities;
+
+        console.log(x);
+
+        // ça correspond à faire ça :
+        /*
+        let x = cities[0];
+        let y = cities[1];
+        let z = cities[2];
+        */
+
         // fonction fléchées
+        // jusqu'à présent on a fait :
+        /* I */
+        document.body.addEventListener("click", function() {
+           console.log("cliqué sur body");
+        });
+
+        // avec la syntaxe fonction fléchée :
+        document.body.addEventListener("click", () => console.log("cliqué sur body 2"));
+
+        /* II */
+        var addition = function(nb1, nb2) {
+            let sum = nb1 + nb2;
+            return sum;
+        }
+
+        // on peut écrire cette fonction avec cette syntaxe
+        var additionFlechee = (nb1, nb2) => {
+            let sum = nb1 + nb2;
+            return sum;
+        }
+
+        /* III */
+        var addition2 = function(nb1, nb2) {
+            return nb1 + nb2;
+        }
+
+        // si une seule instruction, pas besoin des accolades
+        var addition2Flechee = (nb1, nb2) => nb1 + nb2;
+
+        // accumuler toutes les notes
+        /*
+        let sumNotes = notes.reduce(function(accumulator, value) {
+            return accumulator + value;
+        });
+         */
+        sumNotes = notes.reduce((accumulator, value) => accumulator + value);
+
+        function carre(nb) {
+            return nb * nb;
+        }
+
+        // si un seul paramètre, pas besoin des parenthèses
+        fctCarre = nb => nb * nb;
+
+
+        // classes objet
         // promesses
-        // classes
     </script>
 </body>
 </html>
