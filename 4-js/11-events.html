@@ -51,9 +51,7 @@
         for (const li of lis) {
 
             // avec le addEventListener on peut cumuler les callbacks sur le même évenement
-            li.addEventListener("mouseover", function() {
-                li.style.color = "red";
-            });
+            li.addEventListener("mouseover", function() {li.style.color = "red";});
 
             li.addEventListener("mouseover", changeLiUnderline);
         }

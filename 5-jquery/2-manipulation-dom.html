@@ -20,6 +20,9 @@
 
     <button id="btn-click" style="" >Cliquez-moi</button>
 
+    <button id="btn-text">Change mon texte !</button>
+    <button id="btn-html">Change mon html !</button>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
@@ -79,6 +82,27 @@
             // transformer l'objet JS "this" en un objet jQuery
             $(this).css("font-size", "2em");
         });
+
+        // changer le texte d'un élément
+        // JS
+        let btnText = document.querySelector("#btn-text");
+        btnText.textContent = "<b>Texte changé !</b>";
+
+        // jQuery
+        let $btnText = $("#btn-text");
+        $btnText.text("<b>Texte changé !</b>");
+
+        // changer le html d'un élément
+        // js
+        let btnHtml = document.querySelector("#btn-html");
+        btnHtml.innerHTML = "<b>Texte changé !</b>";
+        btnHtml.style.color = "red";
+
+        let btnHtml = $("#btn-html");
+        btnHtml.html("<b>Texte changé !</b>");
+        btnHtml.css("color", "red");
+
+
     </script>
 </body>
 </html>
