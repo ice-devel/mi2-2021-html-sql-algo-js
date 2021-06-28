@@ -92,6 +92,23 @@
             }
         }
 
+        function clickOnBtnClick(event) {
+            let titre = document.querySelector("h1");
+            titre.style.color = "red";
+
+            let lis = document.querySelectorAll("li");
+
+            // for : gestion de l'indice
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].style.fontStyle = "italic";
+            }
+
+            // la même avec for...of
+            for (const elem of lis) {
+                elem.style.fontStyle = "italic";
+            }
+        }
+
         // récupérer le bouton dans une variable
         var btnClick = document.querySelector("#btn-click");
         // écouter le click pour déclencher une fonction

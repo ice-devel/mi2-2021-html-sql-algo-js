@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction jQuery</title>
+</head>
+<body>
+    <h1>Manipuler le DOM avec Jquery</h1>
+
+    <p>
+        DOM : document object manager
+    </p>
+
+    <h2 class="bold">Sélecteurs</h2>
+    <ul>
+        <li class="bold">Par ID</li>
+        <li class="italic">Par classe</li>
+        <li class="bold">Par tag</li>
+    </ul>
+
+    <button id="btn-click" style="" >Cliquez-moi</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+        /*
+         * Grâce au DOM, on peut en JS intéragir avec le HTML :
+         * 1 - Sélectionner un ou plusieurs éléments
+         * 2 - Intéragir avec ces éléments
+         */
+
+
+        /*
+            querySelector : sélectionner un seul élément / null si pas d'élément correspondant
+         */
+        var btnClick = $("#btn-click");
+        console.log(btnClick);
+        console.log(typeof btnClick);
+
+        btnClick.css("color", "red");
+
+        /*
+            querySelectorAll : sélectionner plusieurs éléments
+            tableau rempli ou tableau vide si pas élément correspondant
+         */
+        var lis = $("li");
+        console.log(lis);
+        lis.css("text-decoration", "underline");
+        lis.css("color", "green");
+
+
+        var boldedLis = $("li.bold");
+        boldedLis.css("font-weight", "bold");
+
+        /*
+        Gestion des évenement
+         */
+
+        function clickOnBtnClick(event) {
+            let titre = $("h1");
+            titre.css("color", "red");
+
+            let lis = $("li");
+            lis.css("font-style", "italic")
+        }
+
+        // récupérer le bouton dans une variable
+        var btnClick = $("#btn-click");
+        // écouter le click pour déclencher une fonction
+        btnClick.on("click", clickOnBtnClick);
+
+        var lis = $("li");
+        lis.on("mouseover", function() {
+            // this est une variable JS, donc on ne peut appeler la fonction css
+            //this.css("font-size", "2em");
+
+            // transformer l'objet JS "this" en un objet jQuery
+            $(this).css("font-size", "2em");
+        });
+    </script>
+</body>
+</html>

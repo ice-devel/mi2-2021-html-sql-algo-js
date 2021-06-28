@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction jQuery</title>
+</head>
+<body>
+    <p>jQuery : Apporte une écriture simplifiée du JS, en assurant la compatibilité
+        tous navigateurs, et de nouvelles fonctions.</p>
+    <button id="btn">Bouton</button>
+
+    <ul>
+        <li>Puce 1</li>
+        <li>Puce 2</li>
+        <li>Puce 3</li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        // fonction générique de jQuery : l'ensemble de jQuery repose sur cette
+        // fonction
+        jQuery();
+
+        // raccourci
+        $();
+
+        /*
+            I - raccourci pour sélectionner des éléments
+         */
+        // en JS :
+        let btn = document.querySelector("#btn");
+        console.log(btn);
+
+        // en jQuery : un élément jQuery contient l'élément JS + de nouvelles fonctions
+        let $btn = $("#btn");
+        console.log($btn);
+
+        // en JS :
+        let lis = document.querySelectorAll("li");
+
+        for (const li of lis) {
+            li.style.color = "red";
+        }
+
+        // en jQuery
+        let $lis = $("li");
+        // on peut appeler des fonctions sur une variable jQuery, indépendamment du fait
+        // que le sélecteur correspondent à 0, 1 ou plusieurs éléments
+        $lis.css("color", "green");
+
+    </script>
+</body>
+</html>
