@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-ajax</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Ajax</h1>
+
+    <p>
+        Asynchronous Javascript XML
+        Pouvoir contacter un serveur pour récupérer de la data
+        Asynchrone : le code est non-bloquant, quand la requête est lancée, le reste du code
+        continue de s'exécuter.
+
+        Interet : créer des pages dynamiques, on peut récupérer des infos côté serveur sans avoir
+        à recharger la page dans laquelle on se trouve.
+    </p>
+
+    <button id="btn-get-users">Récupérer utilisateurs</button>
+
+    <script>
+        /*
+            I - avec xmlHttpRequest
+         */
+        let btnGetUsers = document.querySelector("#btn-get-users");
+        btnGetUsers.addEventListener("click", function() {
+            ajax("GET" , "https://httpbin.org/get", null, displayUsers);
+        });
+
+        function displayUsers(result) {
+            console.log("coucou : " + result);
+            // afficher les utilisateurs :
+        }
+
+        function ajax(method, url, data, callback) {
+            // XMLHttpRequest
+            let request = new XMLHttpRequest();
+
+            // 1- callback : qu'est-ce qu'on fera quand on recevra la réponse du serveur
+            request.onreadystatechange = function() {
+                // requête finie et a fonctionné ?
+                if (request.readyState == 4 && request.status == 200) {
+                    var result = request.responseText;
+                    callback(result);
+                }
+            }
+
+            // 2- configuration de la requête
+            request.open(method, url);
+
+            // 3- lancer la requête (avec les données à envoyer)
+            request.send(data);
+        }
+
+        /*
+            II - Même chose mais avec l'api FETCH
+         */
+        fetch("https://httpbin.org/get", {"method": "GET", "body": null})
+            .then(function(response) {
+                console.log("requete avec fetch : " + response);
+                return response.json();
+            })
+            .then(function(json) {
+                console.log(json);
+                console.log("Origin : " + json.headers.Origin);
+            });
+
+
+    </script>
+</body>
+</html>
+
+
