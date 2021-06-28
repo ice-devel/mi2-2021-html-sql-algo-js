@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction jQuery</title>
+    <style>
+        .dynamic-div {
+            border: 1px solid orange;
+            padding: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Création Element jQuery</h1>
+
+    <div id="parent" class="container">
+    </div>
+
+    <button id="btn-div">Ajouter un div</button>
+    <button id="btn-img">Ajouter une image</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+        // récupérer le bouton ajouter un div
+        let btnDiv = $("#btn-div");
+
+        // ajouter un div dynamiquement lorsque l'on clique sur le bouton "ajouter un div"
+        btnDiv.on("click", function() {
+            // création en mémoire d'un élément HTML div
+            let newDiv = $("<div>");
+
+            // on applique juste une classe sur l'élément, le css fera le reste
+            newDiv.addClass("dynamic-div");
+            newDiv.html("<b>Coucou en gras</b>");
+
+            // écouter des événements
+            newDiv.on("click", function() {
+                $(this).remove();
+            });
+
+            // insérer le nouvel élément dans la page : choisir le parent
+            $("#parent").append(newDiv);
+        });
+
+        // récupérer le bouton ajouter une image
+        let btnImage = $("#btn-img");
+
+        // ajouter un image dynamiquement lorsque l'on clique sur le bouton "ajouter un image"
+        btnImage.on("click", function() {
+            // création en mémoire d'un élément HTML img
+            let newImage = $("<img>");
+
+            // mettre des valeurs pour les propriétés qui nous intéresse
+            newImage.attr("src",  "3.jpg");
+            newImage.attr("alt", "c'est un trois");
+
+            // écouter des événements
+            newImage.on("click", function() {
+                this.remove();
+            });
+
+            // insérer l'image dans la page
+            $("#parent").append(newImage);
+        });
+    </script>
+</body>
+</html>

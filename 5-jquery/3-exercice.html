@@ -9,22 +9,54 @@
 
     <p>
         Créer en HTML :
-            - 2 champs texte
-            - un bouton valider
-            - un div pour le résultat
+        - 2 champs texte
+        - un bouton valider
+        - un div pour le résultat
 
         Codez en jquery :
-            - lorsque l'utilisateur clique sur valider, il faut calculer le produit des nombres
-            se trouvant dans les champs texte.
-            - afficher le résultat en gras dans le div résultat
+        - lorsque l'utilisateur clique sur valider, il faut calculer le produit des nombres
+        se trouvant dans les champs texte.
+        - afficher le résultat en gras dans le div résultat
     </p>
+
+    <input id="input-1" type="text"/>
+    <input id="input-2" type="text"/>
+    <button id="btn-operation">Valider</button>
+    <div id="container-result"></div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
 
     <script>
+        /*
+        $("#btn-operation").on("click", function() {
+            console.log("coucou");
+        });
+        */
 
+        $("#btn-operation").on("click", () => {
+            let value1 = $("#input-1").val();
+            let value2 = $("#input-2").val();
+            let result = value1 * value2;
+            /*
+            // en deux lignes
+            $("#container-result").text(result);
+            $("#container-result").css("font-weight", "bold");
+             */
+            // ou encore en une seule :
+            $("#container-result").html("<b>" + result + "</b>");
+        });
+
+        $("#btn-operation").on("click", () => {
+            let result = $("#input-1").val() * $("#input-2").val();
+            $("#container-result").html("<b>" + result + "</b>");
+        });
+
+        $("#btn-operation").on("click", () =>
+            $("#container-result").html("<b>" + $("#input-1").val() * $("#input-2").val() + "</b>"));
     </script>
 </body>
 </html>
