@@ -9,6 +9,8 @@
 <body>
     <h1>Gestion formulaire en jQuery</h1>
 
+    <div id="form-errors"></div>
+
     <form id="form-register">
         <input type="radio" name="civility" value="mme"/> <label>Mme</label>
         <input type="radio" name="civility" value="m"/> <label>M.</label>
@@ -49,12 +51,37 @@
             event.preventDefault();
 
             // vérification du formulaire
-            isValid();
+            let errors = isValid();
+
+            // si pas d'erreur, envoi du formulaire en ajax
+            //if (errors.length === 0) {
+            // javascript transforme l'entier en boolean : 0 = false, tous les autres = true
+            if (!errors.length) {
+                // ici pas d'erreur
+                sendRequest();
+            }
+            else {
+                // ici erreur
+                // affichage des erreurs
+
+                // enlever les erreurs précédentes
+                $("#form-errors").html("");
+
+                // ajouter les erreurs actuelles
+                for (const error of errors) {
+                    let p = $("<p>");
+                    p.text(error);
+                    $("#form-errors").append(p);
+                }
+            }
         });
 
         function isValid() {
             // récupération des valeurs du formulaire
             // let name = $("#input-name").val();
+
+            // bouton radio : récupérer le bouton radio qui est coché
+            // let civ = $("input[name=civility]:checked").val();
 
             //let formJS = document.querySelector("#form-register");
             let formJS = $("#form-register")[0];
@@ -74,23 +101,92 @@
 
             // nom obligatoire - pas de chiffre : expression régulière ou fct ?
             let name = formData.get("name");
-            if (name == "" || /[0-9]/.test(name)) {
+            if (name === "" || /[0-9]/.test(name)) {
                 errors.push("Nom invalide");
             }
 
             // description facultative mais au moins 10 caractères si remplie
             let description = formData.get('description');
-            if (description != "" && description.length < 10) {
+            if (description !== "" && description.length < 10) {
                 errors.push("Veuillez saisir votre description");
             }
 
-            console.log(errors);
+            let reglement = formData.get("accept");
+            if (reglement == null) {
+                errors.push("Veuillez accepter nos conditions.");
+            }
+
+            return errors;
         }
 
-        /*$
-        ajax
-        équivalence stricte
+        function sendRequest() {
+            // créer un objet formdata qui contient toutes les informations du formulaire
+            let formData = new FormData($("#form-register")[0]);
+
+            $.ajax({
+                method: "POST",
+                url: "urlfichierserveur.php", // url vers laquelle on envoi les données
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+            .done(function(response) {
+                // response est ce que le serveur a renvoyé
+            })
+            .fail(function(jqXHR, textStatus) {
+                // erreur serveur comme page inexistante (404)
+                alert( textStatus );
+            });
+        }
+
+        /*
+         * Equivalence stricte
          */
+        let chaine1 = "toto";
+        let chaine2 = "test";
+
+        // I équivalence
+        if (chaine1 == chaine2) {
+
+        }
+
+        let chaine3 = "10";
+        let entier1 = 10;
+
+        if (chaine3 == entier1) {
+            // oui on rentre
+        }
+
+        if (chaine3 != entier1) {
+            // on rentre pas
+        }
+
+        // II  équivalente stricte : teste la valeur et le type
+        if (chaine1 === chaine2) {
+
+        }
+
+        if (chaine3 === entier1) {
+            // non on ne rentre plus
+            // les valeurs sont les mêmes (10)
+            // mais les types ne sont pas les mêmes (string d'un côté, number de l'autre)
+        }
+
+        if (chaine3 !== entier1) {
+            // oui on erntre
+        }
+
+        let boolean1 = true;
+        let entier2 = 1;
+
+        if (boolean1 == entier2) {
+            // on rentre 1 == true
+        }
+
+        if (boolean1 === entier2) {
+            // on rentre pas : les valeurs 1 et true sont équivalentes
+            // mais leurs types ne le sont pas (string != boolean)
+        }
     </script>
 </body>
 </html>
