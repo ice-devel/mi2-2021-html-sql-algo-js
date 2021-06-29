@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire jQuery</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Gestion formulaire en jQuery</h1>
+
+    <form id="form-register">
+        <input type="radio" name="civility" value="mme"/> <label>Mme</label>
+        <input type="radio" name="civility" value="m"/> <label>M.</label>
+        <br>
+        <label>Nom</label>
+        <input id="input-name" type="text" name="name"/>
+        <br>
+        <label>Mot de passe</label>
+        <input type="password" name="pass"/>
+        <br>
+        <label>Date de naissance</label>
+        <input type="date" name="birthdate"/>
+        <br>
+        <label>Pays</label>
+        <select name="country">
+            <option></option>
+            <option>France</option>
+            <option>Belgique</option>
+            <option>Italie</option>
+        </select>
+        <br>
+        <label>Description</label>
+        <textarea name="description"></textarea>
+        <br>
+        <input type="checkbox" name="accept"/>
+        <label>J'accepte le réglement</label>
+        <br>
+        <input id="btn-submit" type="submit" value="Valider" />
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+        $("#form-register").on("submit", (event) => {
+            event.preventDefault();
+
+            // vérification du formulaire
+            isValid();
+        });
+
+        function isValid() {
+            // récupération des valeurs du formulaire
+            // let name = $("#input-name").val();
+
+            //let formJS = document.querySelector("#form-register");
+            let formJS = $("#form-register")[0];
+
+
+            // créer un objet formdata qui contient toutes les informations du formulaire
+            let formData = new FormData(formJS);
+
+            // vérification des valeurs
+            let errors = [];
+
+            // civilité obligatoire
+            let civility = formData.get("civility");
+            if (civility == null) {
+                errors.push("Veuillez saisir votre civilité");
+            }
+
+            // nom obligatoire - pas de chiffre : expression régulière ou fct ?
+            let name = formData.get("name");
+            if (name == "" || /[0-9]/.test(name)) {
+                errors.push("Nom invalide");
+            }
+
+            // description facultative mais au moins 10 caractères si remplie
+            let description = formData.get('description');
+            if (description != "" && description.length < 10) {
+                errors.push("Veuillez saisir votre description");
+            }
+
+            console.log(errors);
+        }
+
+        /*$
+        ajax
+        équivalence stricte
+         */
+    </script>
+</body>
+</html>
