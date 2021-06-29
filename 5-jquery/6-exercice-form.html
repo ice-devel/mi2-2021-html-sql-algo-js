@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire jQuery</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Exercice formulaire en jQuery</h1>
+
+    <p>
+        Créer une page web avec un formulaire qui contient :
+        <ul>
+            <li>Statut (Propriétaire, Locataire)</li>
+            <li>Nom</li>
+            <li>Email</li>
+            <li>Salaire</li>
+            <li>Bouton pour valider</li>
+        </ul>
+        Cette page web doit également contenir un tableau html vide (< table >)
+    </p>
+
+    <p>
+        Créer le code javascript/ jQuery qui
+        - au moment de la validation du formulaire, empeche la page de se recharger
+        - récupérer toutes les données du formulaire
+        - vérifie si les valeurs sont valides
+            - statut obligatoire
+            - nom obligatoire, minimum 2 caractères
+            - email obligatoire (format email)
+            - salaire (obligatoire / que des chiffres)
+        - si il y a des erreurs, les afficher à côté des champs concernés
+        - si pas d'erreur, ajouter une ligne html (< tr>) dans le tableau html avec toutes les informations
+        saisies. Une cellule (< td>) par information (statut, nom, email, salaire)
+        - réinitialise le formulaire
+        - le tout doit se faire sans rechargement de page
+    </p>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+    </script>
+</body>
+</html>
