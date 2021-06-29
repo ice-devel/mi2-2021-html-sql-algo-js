@@ -31,19 +31,105 @@
             - email obligatoire (format email)
             - salaire (obligatoire / que des chiffres)
         - si il y a des erreurs, les afficher à côté des champs concernés
-        - si pas d'erreur, ajouter une ligne html (< tr>) dans le tableau html avec toutes les informations
-        saisies. Une cellule (< td>) par information (statut, nom, email, salaire)
+        - si pas d'erreur, ajouter une ligne html (< tr>) dans le tableau html
+        avec toutes les informations saisies.
+        Une cellule (< td>) par information (statut, nom, email, salaire)
         - réinitialise le formulaire
         - le tout doit se faire sans rechargement de page
     </p>
 
+    <form id="form-register" action="" method="post">
+        <input type="radio" name="status" value="proprio" /> <label>Propriétaire</label>
+        <input type="radio" name="status" value="locataire" /> Locataire
+        <div id="error-status" class="error"></div>
+
+        <input type="text" name="name" placeholder="Votre nom"/>
+        <div id="error-name" class="error"></div>
+
+        <input type="text" name="email" placeholder="Votre email" />
+        <div id="error-email" class="error"></div>
+
+        <input type="text" name="salary" placeholder="Votre revenu fiscal"/>
+        <div id="error-salary" class="error"></div>
+
+        <button>Vérifier mes droits</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Statut</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Salaire</th>
+            </tr>
+        </thead>
+        <tbody id="list-users">
+
+        </tbody>
+    </table>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
 
     <script>
+        let formRegister = $("#form-register");
 
+        formRegister.on("submit", (event) => {
+            // annuler la soumission pour éviter le rechargement de page
+            event.preventDefault();
+
+            // vérifier si le formulaire est valide
+            isValid();
+        });
+
+        function isValid() {
+            // récupérer les valeurs du formulaire
+            let formData = new FormData(formRegister[0]);
+            let error = false;
+
+            // cacher les messages d'erreur
+            $(".error").html("");
+
+            let status = formData.get("status");
+            if (status == null) {
+                $("#error-status").html("Choisissez un statut");
+                error = true;
+            }
+
+            let name = formData.get("name");
+            if (name.length < 2) {
+                $("#error-name").html("Nom invalide");
+                error = true;
+            }
+
+            let email = formData.get("email");
+            if (!validateEmail(email)) {
+                $("#error-email").html("Email invalide");
+                error = true;
+            }
+
+            let salary = formData.get("salary");
+            if (!/^[0-9]+$/.test(salary)) {
+                $("#error-salary").html("Salaire invalide");
+                error = true;
+            }
+
+            // ajouter l'enregistrement dans le tableau html si pas d'erreur
+            //if (error === false) {
+            if (!error) {
+                console.log("pas d'erreur");
+
+                // réinitaliser le formulaire pour commencer une nouvelle saisie
+                formRegister[0].reset();
+            }
+        }
+
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
     </script>
 </body>
 </html>
