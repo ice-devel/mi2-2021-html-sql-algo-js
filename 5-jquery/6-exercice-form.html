@@ -65,7 +65,12 @@
             </tr>
         </thead>
         <tbody id="list-users">
-
+            <tr>
+                <td>fes</td>
+                <td>fesfes</td>
+                <td>fesf</td>
+                <td>fsefes</td>
+            </tr>
         </tbody>
     </table>
 
@@ -119,11 +124,48 @@
             // ajouter l'enregistrement dans le tableau html si pas d'erreur
             //if (error === false) {
             if (!error) {
-                console.log("pas d'erreur");
+                addUserInTable(status, name, email, salary);
 
                 // réinitaliser le formulaire pour commencer une nouvelle saisie
                 formRegister[0].reset();
             }
+        }
+
+        function addUserInTable(status, name, email, salary) {
+            // création d'une nouvelle ligne (tr) en mémoire
+            let newTR = $("<tr>");
+
+            // création des cellules (td)
+            let newTD = $("<td>");
+            newTD.html(status);
+            newTR.append(newTD);
+
+            newTD = $("<td>");
+            newTD.html(name);
+            newTR.append(newTD);
+
+            newTD = $("<td>");
+            newTD.html(email);
+            newTR.append(newTD);
+
+            newTD = $("<td>");
+            newTD.html(salary);
+            newTR.append(newTD);
+
+            // ou création des td en string : si la chaine est simple
+            // ça reste parfaitement lisible
+            /*
+            let stringTd =  "<td>" + status + "</td>" +
+                            "<td>" + name + "</td>" +
+                            "<td>" + email + "</td>" +
+                            "<td>" + salary + "</td>";
+            newTR.html(stringTd);
+            */
+
+            // ajout du tr dans le tbody
+            // récupération du tbody en mémoire
+            let tbody = $("#list-users");
+            tbody.append(newTR);
         }
 
         function validateEmail(email) {
