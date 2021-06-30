@@ -30,8 +30,44 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
 
-
+    <style>
+        div {
+            color : #0ffee9;
+        }
+    </style>
     <script>
+        let div = $("#div");
+        div.css("color", "red")
+            .css("margin", "20px")
+        ;
+
+        // pas terrible mais possible :
+        // div.attr('style', "color:red;margin:20px;");
+
+        let color = getRandomColor();
+
+        // fonction qui génère un code couleur aléatoire
+        function getRandomColor() {
+            // #09AFF3
+            let chars = "0123456789ABCDEF";
+            let color = "#";
+
+            for (let i = 0; i <= 5; i++) {
+                // générer un indice aléatoire entre 0 et 15
+                let position = randomIntFromInterval(0, 15);
+                // aller chercher le caractère correspondant
+                let char = chars[position];
+                // l'ajouter dans le code couleur
+                color += char;
+                // console.log(color);
+            }
+
+            return color;
+        }
+
+        function randomIntFromInterval(min, max) { // min and max included
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
 
     </script>
 </body>
