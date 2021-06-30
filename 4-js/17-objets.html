@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-ajax</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Programmation orienté objet - POO</h1>
+
+    <p>
+        A la base javascript n'est un langage orienté objet, mais les évolutions
+        de ce langage permettent aujourd'hui de faire de l'objet (sans avoir accès à tous les concepts objets).
+    </p>
+
+    <p>
+        Site ecommerce : Produit, Categorie, Commande, Utilisateur sont des concepts indépendants
+        qui peuvent avoir chacun un ensemble de propriétés (nom, age, date_naissance, etc.)
+        ainsi qu'un ensemble de comportement.
+    </p>
+    <p>
+
+    </p>
+
+    <script>
+        // préface à l'objet
+        // objet littéral
+
+        // rappel : ça c'est un tableau
+        var user = [];
+        user[0] = "Nom user";
+        user[1] = 33;
+
+        // la même chose en objet litteral
+        var user = {};
+        user.name = "Nom user";
+        user.age = 33;
+
+        // la même chose mais dès la déclaration
+        var user = {
+            name: "Nom user",
+            age: 33,
+            sayHello: function() {
+                console.log("Bonjour je m'appelle " + this.name);
+            }
+        };
+
+        user.zipcode = "59000";
+        user.sayHello();
+
+
+        // l'objet est déjà bien pratique, mais il faut recréer la structure à chaque fois
+        var user2 = {
+            firstname: "Nom user",
+            ageUser: 33,
+            sayHello: function() {
+                console.log("Bonjour je m'appelle " + this.name);
+            }
+        };
+
+
+        // avant : ceci est une classe
+        function Player(name, points, zipcode="") {
+            // le this fait référence ) l'bjet qu'on est entrain de manipuler
+            this.name = name;
+            this.points = points;
+            this.zipcode = zipcode;
+            this.play = function() {
+                this.points += 10;
+                console.log(this.name + " est entrain de jouer (" + this.points + ")");
+            }
+        }
+
+        // player1 est une instance de la classe Player
+        let player1 = new Player("fab", 50); // instanciation : création d'une instance de classe
+        let player2 = new Player("steeve", 3); // instanciation : création d'une instance de classe
+        console.log(player1);
+        console.log("Nom joueur 2 : " + player2.name);
+
+        player2.play();
+        player2.play();
+
+        // depuis ES6
+        class Player2 {
+            constructor(name, points, zipcode="") {
+                // le constructor est automatiquement lors d'instanciation
+                console.log("Player2 créé");
+                // déclaration des propriétés
+                this.name = name;
+                this.points = points;
+                this.zipcode = zipcode;
+            }
+
+            // les méthodes
+            play() {
+                this.points += 10;
+                console.log(this.name + " est entrain de jouer (" + this.points + ")");
+            }
+        }
+
+        let player3 = new Player2("guillaume le bestial", 50, "01150");
+        console.log(player3);
+
+    </script>
+</body>
+</html>
+
+
