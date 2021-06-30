@@ -20,7 +20,19 @@
     <button id="btn-div">Ajouter un div</button>
     <button id="btn-img">Ajouter une image</button>
 
+    <div id="parent-text" style="border:1px solid;margin: 20px 0;">
 
+    </div>
+
+    <div id="parent-html" style="border:1px solid;margin: 20px 0;">
+
+    </div>
+
+    <ul>
+        <li><span>Puce 1</span></li>
+        <li><span>Puce 2</span></li>
+        <li><span>Puce 3</span></li>
+    </ul>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
@@ -67,6 +79,74 @@
             // insérer l'image dans la page
             $("#parent").append(newImage);
         });
+
+
+        // méthodes permettant d'insérer/ déplacer uun/des éléments dans le dom
+        /*
+         * Ajouter du contenu textuel dans le DOM
+         */
+        let parentText = $("#parent-text");
+        // équivalent de ça
+        // parentText.html(parentText.html() + "coucou");
+        // on peut faire ça :
+        parentText.append("coucou");
+
+        // insérer en première position
+        parentText.prepend("Inséré en première position");
+
+        // juste avant : before
+        // juste après : after
+        parentText.before("texte juste avant le div text");
+        parentText.after("texte juste après le div text");
+
+        /*
+        Insérer un élément
+         */
+        let parentHtml = $("#parent-html");
+
+        // insérer en dernière position
+        let p = $("<p>");
+        p.text("Texte du p");
+
+        parentHtml.append(p);
+
+        // insérer en première position
+        let p2 = $("<p>");
+        p2.text("Texte du p2");
+
+        parentHtml.prepend(p2);
+
+        // insérer un p juste avant
+        let p3 = $("<p>");
+        p3.text("Texte du p3");
+
+        parentHtml.before(p3);
+
+        // déplacer le p3
+        parentHtml.after(p3);
+
+        // dans l'autre sens
+        let p4 = $("<p>Paragraphe 4</p>")
+        p4.appendTo(parentHtml);
+        p4.prependTo(parentHtml);
+        p4.insertBefore(parentHtml);
+        p4.insertAfter(parentHtml);
+
+        // remplacer un ou des élément par un autre
+        let img = $("<img>");
+        img.attr("src", "https://img.20mn.fr/MEzQQoarRaWhDIOrosA6dQ/960x614_20mn-62173.jpg");
+        img.css("width", "150px");
+
+        p3.replaceWith(img);
+
+        // sélectionner tous les spans dans des lis
+        img = $("<img>");
+        img.attr("src", "https://img.20mn.fr/MEzQQoarRaWhDIOrosA6dQ/960x614_20mn-62173.jpg");
+        img.css("width", "150px");
+        let spans = $("li span");
+        spans.replaceWith(img);
+
+
     </script>
 </body>
 </html>
