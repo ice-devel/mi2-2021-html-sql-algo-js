@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sélecteur jQuery</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Sélecteurs</h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+       // sélection simple : par identifiant, par classe, par tag
+       let div1 = $("#d1"); // par id
+       let divs2 = $(".d2"); // element qui ont classe d2
+       let divs3 = $("div.d2"); // div qui ont classe d2
+       let divs4 = $("div"); // par tag : tous les divs
+
+       // sélectionner des éléments qui sont dans un/des éléments : espace entre les sélecteurs
+       let pInDivD1 = $("#d1 p"); // les paragraphes qui se trouvent dans le div avec id=d1
+       let spanInPInDiv = $("div p span"); // spans dans paragraphes eux-mêmes dans div
+
+       // plusieurs sélections : la virgule
+
+       // les paragraphes qui sont dans le d1 ainsi que les paragraphes qui sont dans le d2
+       let pInDivD1OrDiv2 = $("#d1 p, #d2 p");
+
+       // div qui ont en même la classe blue et la classe bold
+       let divsBoldBlue = $("div.bold.blue")
+
+       /*
+        Sélecteur d'attributs
+        */
+       let inputsEmails = $("input[type=email]"); // inputs qui ont le type email
+
+       // inputs qui ont le type email et un maxlength à 50
+       let inputsEmails2 = $("input[type=email][maxlength='50']");
+
+       let divWithDataValueTest = $("div[data-value=test]");
+
+       // element avec data-value à test
+       let elementWithDataValueTest = $("[data-value=test]");
+
+       // element avec data-value (toutes valeurs possibles)
+       let elementWithDataValue = $("[data-value]");
+
+       // sélection des éléménts
+       // les div dont l'id commence par container
+       let divsBeginsContainer = $("div[id^=container]");
+
+       // les div dont l'id termine par container
+       let divsEndsContainer = $("div[id$=container]");
+
+       // les div dont l'id est différent de container
+       let divsEndsContainer = $("div[id!=container]");
+
+       // les div dont l'id contient container
+       let divsEndsContainer = $("div[id*=container]");
+
+       // sélectionner les images .jpg : les balises img
+       // dont l'attribut src termine par jpg
+       let imagesJpg = $("img[src$='.jpg']");
+
+        /*
+         Sélecteurs hiérarchiques
+         */
+        // parent enfant
+       // les p qui sont dans un div
+        $("div p");
+
+        // sélectionner les enfants directs, le div est le niveau directement supérieur au p :
+       $("div > p");
+
+       // sélectionner un élément directement précédé d'un autre
+       // ici sélection des spans qui sont directement précédés d'un lien
+       $("a + span");
+
+       // élément précédé (dans le même parent) d'un autre élément
+       // ici sélection des spans qui sont précédés d'un lien (pas forcément directement)
+       $("a ~ span");
+
+       // premier enfant
+       $("div :first-child");
+       // dernier enfant
+       $("div :last-child");
+       // enfant par son index (ici le troisième enfant)
+       $("div :nth-child(2)");
+
+       // les pairs
+       $("table tr:even");
+       // les impairs
+       $("table tr:odd");
+
+
+    </script>
+</body>
+</html>
