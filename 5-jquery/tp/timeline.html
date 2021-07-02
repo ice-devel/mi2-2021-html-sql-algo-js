@@ -77,21 +77,28 @@
             let postContainer = $("<div>");
             postContainer.addClass("post");
 
+            // préparer le span pour le pseudo
             let span = $("<span class='user'>");
             span.text(fakeUsers[randomInt(0, 2)]);
 
+            // un paragraphe pour le texte du post
             let p = $("<p>");
             p.text(text);
 
+            // un div pour y mettre les futurs commentaires
             let divComments = $("<div class='list-comments'>");
 
+            // un formulaire pour ajouter des commentaires
             let formComment = $("<form>");
             let textareaComment = $("<textarea>");
             let buttonComment = $("<button>Commenter</button>");
             formComment.append(textareaComment);
             formComment.append(buttonComment);
+
+            // écouter la soumission de ce formulaire de commentaire
             formComment.on("submit", addComment)
 
+            // ajouter tous ces éléments au post
             postContainer.append(span);
             postContainer.append(p);
             postContainer.append(divComments);
