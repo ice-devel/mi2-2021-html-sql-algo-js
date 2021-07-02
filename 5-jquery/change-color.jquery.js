@@ -15,13 +15,14 @@
 
         // this ici est l'élément jquery (la sélection d'un ou plusieurs)
         this.each(function() {
-            // this vaut l'élément javascript
-            let element = this;
+            // dans le callback ici this vaut l'élément javascript
+            let elementJS = this;
             setInterval(function() {
-                element.style.color = getRandomColor();
+                elementJS.style.color = getRandomColor();
             }, settings.delay);
         });
 
+        // fonction classique dans le plugin
         function getRandomColor() {
             // #09AFF3
             let chars = "0123456789ABCDEF";
