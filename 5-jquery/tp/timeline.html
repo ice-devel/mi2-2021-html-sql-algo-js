@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory</title>
+    <style>
+        div.container {
+            width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        section.add-post {
+            margin-bottom: 20px;
+        }
+
+        form textarea {
+            width: 100%;
+        }
+
+        div.post {
+            position: relative;
+            border: 1px solid;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        span.user {
+            font-weight: bold;
+        }
+
+        div.comment {
+            position: relative;
+            background-color: #c4c1c1;
+            border: 1px solid gray;
+            margin-left: 20px;
+        }
+
+        div.subcomment {
+            position: relative;
+            background-color: #e9e4e4;
+            border: 1px solid gray;
+            margin-left: 20px;
+        }
+
+        .spanremove {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="add-post">
+            <form id="form-post">
+                <textarea id="post-text" required></textarea>
+                <button>Envoyer</button>
+            </form>
+        </section>
+
+        <section id="timeline">
+
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+
+    <script>
+        // fausse liste de users
+        let fakeUsers = ["Steeve", "JC", "Joshua"];
+
+        $("#form-post").on("submit", (event) => {
+            event.preventDefault();
+            let text = $("#post-text").val();
+
+            // créer le post
+            let postContainer = $("<div>");
+            postContainer.addClass("post");
+
+            let span = $("<span class='user'>");
+            span.text(fakeUsers[randomInt(0, 2)]);
+
+            let p = $("<p>");
+            p.text(text);
+
+            let divComments = $("<div class='list-comments'>");
+
+            let formComment = $("<form>");
+            let textareaComment = $("<textarea>");
+            let buttonComment = $("<button>Commenter</button>");
+            formComment.append(textareaComment);
+            formComment.append(buttonComment);
+            formComment.on("submit", addComment)
+
+            postContainer.append(span);
+            postContainer.append(p);
+            postContainer.append(divComments);
+            postContainer.append(formComment);
+
+            // ajouter le post dans la timeline
+            $("#timeline").prepend(postContainer);
+
+            // réinit textarea
+            $("#post-text").val("");
+        });
+
+        function addComment(event) {
+            event.preventDefault();
+            let textarea = $(this).find('textarea');
+            let text = textarea.val();
+
+            let commentContainer = $("<div>");
+            commentContainer.addClass("comment");
+
+            let span = $("<span class='user'>");
+            span.text(fakeUsers[randomInt(0, 2)]);
+
+            let p = $("<p>");
+            p.text(text);
+
+            let spanRemove = $("<span class='spanremove'>");
+            spanRemove.css("position", "absolute");
+            spanRemove.css("top", 0);
+            spanRemove.css("right", 0);
+            spanRemove.text("X");
+            spanRemove.on("click", function() {
+                $(this).parent().remove();
+            })
+
+
+            let formSubComment = $("<form>");
+            let textareaSubComment = $("<textarea>");
+            let buttonSubComment = $("<button>Commenter</button>");
+            formSubComment.append(textareaSubComment);
+            formSubComment.append(buttonSubComment);
+            formSubComment.on("submit", addSubComment)
+
+            commentContainer.append(span);
+            commentContainer.append(p);
+            commentContainer.append(formSubComment);
+            commentContainer.append(spanRemove);
+
+            let divComment = $(this).closest("div.post").find("div.list-comments");
+            // ajoute le commentaire juste au dessus du formulaire dans le div .list-comment
+            divComment.append(commentContainer);
+            textarea.val("");
+        }
+
+        function addSubComment(event) {
+            event.preventDefault();
+            let textarea = $(this).find('textarea');
+            let text = textarea.val();
+
+            let commentContainer = $("<div>");
+            commentContainer.addClass("subcomment");
+
+            let span = $("<span class='user'>");
+            span.text(fakeUsers[randomInt(0, 2)]);
+
+            let p = $("<p>");
+            p.text(text);
+
+            commentContainer.append(span);
+            commentContainer.append(p);
+
+            // ajoute le commentaire juste au dessus du formulaire
+            $(this).before(commentContainer);
+            textarea.val("");
+        }
+
+
+        function randomInt(min, max) { // min and max included
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+    </script>
+</body>
+</html>
